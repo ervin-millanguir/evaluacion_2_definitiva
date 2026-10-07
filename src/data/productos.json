@@ -1,0 +1,517 @@
+{
+"Servicios":[
+ {
+  "VETERINARIA SAN MARCOS": "Catálogo de Servicios – Forma A"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "Código",
+  "Column2": "Categoría",
+  "Column3": "Nombre del servicio",
+  "Column4": "Especie",
+  "Column5": "Duración aprox.",
+  "Column6": "Precio (CLP)",
+  "Column7": "Observaciones"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "SV001",
+  "Column2": "Consultas",
+  "Column3": "Consulta general",
+  "Column4": "Perro / Gato",
+  "Column5": "30 min",
+  "Column6": 15000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "SV002",
+  "Column2": "Consultas",
+  "Column3": "Consulta urgencia",
+  "Column4": "Perro / Gato",
+  "Column5": "30 min",
+  "Column6": 25000,
+  "Column7": "Fuera de horario +$10.000"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "SV003",
+  "Column2": "Consultas",
+  "Column3": "Control postoperatorio",
+  "Column4": "Perro / Gato",
+  "Column5": "20 min",
+  "Column6": 10000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "SV004",
+  "Column2": "Consultas",
+  "Column3": "Consulta ave / conejo",
+  "Column4": "Ave / Conejo",
+  "Column5": "30 min",
+  "Column6": 18000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "SV005",
+  "Column2": "Consultas",
+  "Column3": "Segunda opinión médica",
+  "Column4": "Todas",
+  "Column5": "40 min",
+  "Column6": 20000,
+  "Column7": "Requiere ficha previa"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "VA001",
+  "Column2": "Vacunación",
+  "Column3": "Vacuna antirrábica canina",
+  "Column4": "Perro",
+  "Column5": "10 min",
+  "Column6": 12000,
+  "Column7": "Obligatoria por ley"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "VA002",
+  "Column2": "Vacunación",
+  "Column3": "Vacuna sextuple canina",
+  "Column4": "Perro",
+  "Column5": "10 min",
+  "Column6": 18000,
+  "Column7": "Refuerzo anual"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "VA003",
+  "Column2": "Vacunación",
+  "Column3": "Vacuna bivalente felina",
+  "Column4": "Gato",
+  "Column5": "10 min",
+  "Column6": 15000,
+  "Column7": "Refuerzo anual"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "VA004",
+  "Column2": "Vacunación",
+  "Column3": "Vacuna triple felina",
+  "Column4": "Gato",
+  "Column5": "10 min",
+  "Column6": 17000,
+  "Column7": "Refuerzo anual"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "VA005",
+  "Column2": "Vacunación",
+  "Column3": "Vacuna Bordetella canina",
+  "Column4": "Perro",
+  "Column5": "10 min",
+  "Column6": 14000,
+  "Column7": "Tos de las perreras"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "VA006",
+  "Column2": "Vacunación",
+  "Column3": "Vacuna antirrábica felina",
+  "Column4": "Gato",
+  "Column5": "10 min",
+  "Column6": 12000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "CI001",
+  "Column2": "Cirugía",
+  "Column3": "Esterilización hembra canina",
+  "Column4": "Perra",
+  "Column5": "90 min",
+  "Column6": 80000,
+  "Column7": "Incluye anestesia y hospitalización 24h"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "CI002",
+  "Column2": "Cirugía",
+  "Column3": "Esterilización macho canino",
+  "Column4": "Perro",
+  "Column5": "60 min",
+  "Column6": 60000,
+  "Column7": "Incluye anestesia"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "CI003",
+  "Column2": "Cirugía",
+  "Column3": "Esterilización hembra felina",
+  "Column4": "Gata",
+  "Column5": "60 min",
+  "Column6": 65000,
+  "Column7": "Incluye anestesia y hospitalización 12h"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "CI004",
+  "Column2": "Cirugía",
+  "Column3": "Esterilización macho felino",
+  "Column4": "Gato",
+  "Column5": "45 min",
+  "Column6": 50000,
+  "Column7": "Incluye anestesia"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "CI005",
+  "Column2": "Cirugía",
+  "Column3": "Extirpación de tumor cutáneo",
+  "Column4": "Perro / Gato",
+  "Column5": "60 min",
+  "Column6": 120000,
+  "Column7": "Precio referencial; varía según tamaño"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "CI006",
+  "Column2": "Cirugía",
+  "Column3": "Cesárea de urgencia",
+  "Column4": "Perra / Gata",
+  "Column5": "120 min",
+  "Column6": 180000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "DE001",
+  "Column2": "Desparasitación",
+  "Column3": "Desparasitación interna pequeños (<10 kg)",
+  "Column4": "Perro",
+  "Column5": "5 min",
+  "Column6": 8000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "DE002",
+  "Column2": "Desparasitación",
+  "Column3": "Desparasitación interna medianos (10-25 kg)",
+  "Column4": "Perro",
+  "Column5": "5 min",
+  "Column6": 9500
+ },
+ {
+  "VETERINARIA SAN MARCOS": "DE003",
+  "Column2": "Desparasitación",
+  "Column3": "Desparasitación interna grandes (>25 kg)",
+  "Column4": "Perro",
+  "Column5": "5 min",
+  "Column6": 11000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "DE004",
+  "Column2": "Desparasitación",
+  "Column3": "Desparasitación interna felina",
+  "Column4": "Gato",
+  "Column5": "5 min",
+  "Column6": 8000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "DE005",
+  "Column2": "Desparasitación",
+  "Column3": "Antiparasitario externo (pipeta)",
+  "Column4": "Perro / Gato",
+  "Column5": "5 min",
+  "Column6": 7500,
+  "Column7": "Incluye aplicación"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "EX001",
+  "Column2": "Exámenes",
+  "Column3": "Hemograma completo",
+  "Column4": "Perro / Gato",
+  "Column5": "30 min",
+  "Column6": 22000,
+  "Column7": "Resultado en 24-48 h"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "EX002",
+  "Column2": "Exámenes",
+  "Column3": "Perfil bioquímico completo",
+  "Column4": "Perro / Gato",
+  "Column5": "30 min",
+  "Column6": 35000,
+  "Column7": "Resultado en 24-48 h"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "EX003",
+  "Column2": "Exámenes",
+  "Column3": "Radiografía (1 proyección)",
+  "Column4": "Perro / Gato",
+  "Column5": "20 min",
+  "Column6": 28000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "EX004",
+  "Column2": "Exámenes",
+  "Column3": "Ecografía abdominal",
+  "Column4": "Perro / Gato",
+  "Column5": "30 min",
+  "Column6": 45000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "EX005",
+  "Column2": "Exámenes",
+  "Column3": "Test de leishmaniasis",
+  "Column4": "Perro",
+  "Column5": "20 min",
+  "Column6": 18000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "OT001",
+  "Column2": "Otros",
+  "Column3": "Corte de uñas",
+  "Column4": "Perro / Gato",
+  "Column5": "15 min",
+  "Column6": 5000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "OT002",
+  "Column2": "Otros",
+  "Column3": "Limpieza dental",
+  "Column4": "Perro / Gato",
+  "Column5": "45 min",
+  "Column6": 55000,
+  "Column7": "Requiere anestesia"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "OT003",
+  "Column2": "Otros",
+  "Column3": "Microchip identificación",
+  "Column4": "Perro / Gato",
+  "Column5": "10 min",
+  "Column6": 15000,
+  "Column7": "Incluye registro"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "OT004",
+  "Column2": "Otros",
+  "Column3": "Hospitalización (por día)",
+  "Column4": "Perro / Gato",
+  "Column5": "24 h",
+  "Column6": 30000,
+  "Column7": "Incluye monitoreo y alimentación básica"
+ }
+],
+"Medicamentos y Vacunas":[
+ {
+  "VETERINARIA SAN MARCOS": "Medicamentos y Vacunas en Stock – Forma A"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "Código",
+  "Column2": "Categoría",
+  "Column3": "Nombre comercial",
+  "Column4": "Principio activo",
+  "Column5": "Presentación",
+  "Column6": "Especie",
+  "Column7": "Stock actual",
+  "Column8": "Precio unitario (CLP)"
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME001",
+  "Column2": "Antibióticos",
+  "Column3": "Amoxibay 250mg",
+  "Column4": "Amoxicilina",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro / Gato",
+  "Column7": 45,
+  "Column8": 4200
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME002",
+  "Column2": "Antibióticos",
+  "Column3": "Enrox 50mg",
+  "Column4": "Enrofloxacino",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro / Gato",
+  "Column7": 30,
+  "Column8": 6800
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME003",
+  "Column2": "Antibióticos",
+  "Column3": "Metrobay 250mg",
+  "Column4": "Metronidazol",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro / Gato",
+  "Column7": 28,
+  "Column8": 3900
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME004",
+  "Column2": "Antiparasitarios",
+  "Column3": "Nexgard",
+  "Column4": "Afoxolaner",
+  "Column5": "Masticable 1 unid.",
+  "Column6": "Perro",
+  "Column7": 60,
+  "Column8": 9500
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME005",
+  "Column2": "Antiparasitarios",
+  "Column3": "Bravecto",
+  "Column4": "Fluralaner",
+  "Column5": "Masticable 1 unid.",
+  "Column6": "Perro",
+  "Column7": 40,
+  "Column8": 18900
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME006",
+  "Column2": "Antiparasitarios",
+  "Column3": "Revolution Plus",
+  "Column4": "Selamectina+Sarolaner",
+  "Column5": "Pipeta 1 unid.",
+  "Column6": "Gato",
+  "Column7": 35,
+  "Column8": 14500
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME007",
+  "Column2": "Antiparasitarios",
+  "Column3": "Drontal Plus",
+  "Column4": "Praziquantel+Pamoato",
+  "Column5": "Comprimido 1 unid.",
+  "Column6": "Perro",
+  "Column7": 80,
+  "Column8": 3200
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME008",
+  "Column2": "Antiparasitarios",
+  "Column3": "Milbemax Gato",
+  "Column4": "Milbemicina+Praziq.",
+  "Column5": "Comprimido 2 unid.",
+  "Column6": "Gato",
+  "Column7": 50,
+  "Column8": 6800
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME009",
+  "Column2": "Antiinflamatorios",
+  "Column3": "Meloxicam 1mg",
+  "Column4": "Meloxicam",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro / Gato",
+  "Column7": 55,
+  "Column8": 4500
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME010",
+  "Column2": "Antiinflamatorios",
+  "Column3": "Carprofen 50mg",
+  "Column4": "Carprofeno",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro",
+  "Column7": 30,
+  "Column8": 9800
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME011",
+  "Column2": "Dermatología",
+  "Column3": "Clorhexidina shampoo",
+  "Column4": "Clorhexidina 2%",
+  "Column5": "Frasco 250ml",
+  "Column6": "Perro / Gato",
+  "Column7": 25,
+  "Column8": 8900
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME012",
+  "Column2": "Dermatología",
+  "Column3": "Malaseb shampoo",
+  "Column4": "Miconazol+Clorhex.",
+  "Column5": "Frasco 250ml",
+  "Column6": "Perro / Gato",
+  "Column7": 20,
+  "Column8": 12500
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME013",
+  "Column2": "Dermatología",
+  "Column3": "Apoquel 16mg",
+  "Column4": "Oclacitinib",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro",
+  "Column7": 18,
+  "Column8": 22000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME014",
+  "Column2": "Digestivo",
+  "Column3": "Probifor",
+  "Column4": "Bacillus clausii",
+  "Column5": "Sobre 5ml x10",
+  "Column6": "Perro / Gato",
+  "Column7": 40,
+  "Column8": 5600
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME015",
+  "Column2": "Digestivo",
+  "Column3": "Omeprazol 10mg vet",
+  "Column4": "Omeprazol",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro / Gato",
+  "Column7": 35,
+  "Column8": 3800
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME016",
+  "Column2": "Cardíaco",
+  "Column3": "Vetmedin 2.5mg",
+  "Column4": "Pimobendan",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro",
+  "Column7": 15,
+  "Column8": 28000
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME017",
+  "Column2": "Analgésicos",
+  "Column3": "Tramadol 50mg vet",
+  "Column4": "Tramadol",
+  "Column5": "Blíster 10 comp.",
+  "Column6": "Perro",
+  "Column7": 22,
+  "Column8": 5200
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME018",
+  "Column2": "Vacunas",
+  "Column3": "Nobivac DHPPi",
+  "Column4": "Vacuna polivalente",
+  "Column5": "Vial 1 dosis",
+  "Column6": "Perro",
+  "Column7": 48,
+  "Column8": 8500
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME019",
+  "Column2": "Vacunas",
+  "Column3": "Nobivac Rabies",
+  "Column4": "Vacuna antirrábica",
+  "Column5": "Vial 1 dosis",
+  "Column6": "Perro / Gato",
+  "Column7": 60,
+  "Column8": 5800
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME020",
+  "Column2": "Vacunas",
+  "Column3": "Felocell CVR",
+  "Column4": "Vacuna triple felina",
+  "Column5": "Vial 1 dosis",
+  "Column6": "Gato",
+  "Column7": 36,
+  "Column8": 7200
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME021",
+  "Column2": "Suplementos",
+  "Column3": "Omega vet 3-6-9",
+  "Column4": "Ácidos grasos omega",
+  "Column5": "Frasco 100ml",
+  "Column6": "Perro / Gato",
+  "Column7": 30,
+  "Column8": 9900
+ },
+ {
+  "VETERINARIA SAN MARCOS": "ME022",
+  "Column2": "Suplementos",
+  "Column3": "Condrovet forte",
+  "Column4": "Condroitín+Glucos.",
+  "Column5": "Blíster 30 comp.",
+  "Column6": "Perro",
+  "Column7": 25,
+  "Column8": 14500
+ }
+]
+}

@@ -1,38 +1,16 @@
-`# Nombre del Equipo
+# React + Vite
 
-Happy pawss
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Integrantes
-- Camilo Alegria (ca.alegriav@duocuc.cl)
-- Ervin Millangir (er.millanguir@duocuc.cl)
+Currently, two official plugins are available:
 
-## Caso
-Veterinaria
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Descripción del caso
-Pagina de veterinaria, atencion a toda hora, inicio de sesion y base de datos con los animales atendidos.
+## React Compiler
 
-## Estructura del proyecto
-.
-├── public
-└── src
-    ├── assets
-    ├── components
-    │   ├── atoms
-    │   ├── molecules
-    │   ├── organisms
-    │   └── templates
-    ├── data
-    └── pages
-    
-## Tecnologías
-- React + Vite
-- React Bootstrap
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Cómo ejecutar el proyecto
-npm install
-npm run dev
+## Expanding the Oxlint configuration
 
-## Material complementario
-Carpeta de Drive con documentos del semestre (ERS y otros):
-https://drive.google.com/drive/folders/1sBZz8nqT04jvfUIeWwUNZRod3w3K-RjQ?usp=sharing
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
