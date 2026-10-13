@@ -31,31 +31,34 @@ Pagina de veterinaria, atencion a toda hora, inicio de sesion y base de datos co
 │   │   │   ├── EtiquetaEstadoCita.jsx
 │   │   │   ├── Icono.jsx
 │   │   │   └── Selector.jsx
-│   │   ├── molecules
-│   │   │   ├── BuscadorServicios.jsx
-│   │   │   ├── CampoFormulario.jsx
-│   │   │   ├── FilaCita.jsx
-│   │   │   ├── SelectorFechaHora.jsx
-│   │   │   └── TarjetaServicio.jsx
-│   │   ├── organisms
-│   │   │   ├── Footer.jsx
-│   │   │   ├── ListaServicios.jsx
-│   │   │   └── Navbar.jsx
+    │   ├── molecules/
+    │   │   ├── BuscadorServicios.jsx
+    │   │   ├── CampoFormulario.jsx
+    │   │   ├── FilaCita.jsx
+    │   │   ├── SelectorFechaHora.jsx
+    │   │   ├── TarjetaProducto.jsx
+    │   │   └── TarjetaServicio.jsx
+    │   ├── organisms/
+    │   │   ├── Footer.jsx
+    │   │   ├── FormularioRegistro.jsx
+    │   │   ├── ListaProductos.jsx
+    │   │   ├── ListaServicios.jsx
+    │   │   └── Navbar.jsx
 │   │   └── templates
 │   │       └── PlantillaPublica.jsx
-│   ├── context
-│   │   └── ProductosContext.jsx
-│   ├── data
-│   │   └── productos.json
-│   ├── index.css
-│   ├── main.jsx
-│   ├── pages
-│   │   ├── Inicio.jsx
-│   │   └── Servicios.jsx
-│   ├── services
-│   │   └── productoService.js
-│   └── utils
-
+    ├── context/
+    │   └── ProductosContext.jsx
+    ├── data/
+    │   └── productos.json
+    ├── pages/
+    │   ├── Inicio.jsx
+    │   ├── Productos.jsx
+    │   ├── Registro.jsx
+    │   └── Servicios.jsx
+    ├── services/
+    │   └── productoService.js
+    ├── utils/
+    │   └── adaptarCatalogo.js
 ## Tecnologías
 - React + Vite
 - React Bootstrap
@@ -67,3 +70,7 @@ npm run dev
 ## Material complementario
 Carpeta de Drive con documentos del semestre (ERS y otros):
 https://drive.google.com/drive/folders/1sBZz8nqT04jvfUIeWwUNZRod3w3K-RjQ?usp=sharing
+## Descripcion de lo realizado
+se realizaron modificaciones y se implemento codigo y carpetas que faltaban en el caso
+
+modificaciones realizadas por : Camilo Alegria , Ervin Millanguir
