@@ -1,11 +1,13 @@
+
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const enlaces = [
   { ruta: '/inicio', texto: 'Inicio' },
   { ruta: '/servicios', texto: 'Servicios' },
+  { ruta: '/categorias', texto: 'Categorías' },
   { ruta: '/productos', texto: 'Productos' },
-  { ruta: '/', texto: 'Registro' },
+  { ruta: '/', texto: 'Registro', exacto: true },
 ]
 
 export default function Navbar() {
@@ -49,7 +51,7 @@ export default function Navbar() {
               <li className="nav-item" key={enlace.ruta}>
                 <NavLink
                   to={enlace.ruta}
-                  end
+                  end={enlace.exacto || false}
                   onClick={cerrarMenu}
                   className={({ isActive }) =>
                     `nav-link${isActive ? ' active fw-bold text-success' : ''}`
