@@ -54,7 +54,9 @@ Pagina de veterinaria, atencion a toda hora, inicio de sesion y base de datos co
     │   ├── Inicio.jsx
     │   ├── Productos.jsx
     │   ├── Registro.jsx
-    │   └── Servicios.jsx
+    │   |── Servicios.jsx
+│   |   ├── Categorias.jsx
+│   |   └── DetalleServicio.jsx
     ├── services/
     │   └── productoService.js
     ├── utils/
