@@ -7,6 +7,7 @@ import Registro from './pages/Registro'
 import Inicio from './pages/Inicio'
 import Servicios from './pages/Servicios'
 import Productos from './pages/Productos'
+import DetalleProducto from './pages/DetalleProducto'
 import Categorias from './pages/Categorias'
 import DetalleServicio from './pages/DetalleServicio'
 
@@ -56,6 +57,14 @@ export default function App() {
         element={
           <PlantillaPublica>
             <Productos />
+          </PlantillaPublica>
+        }
+      />
+      <Route
+        path="/productos/:id"
+        element={
+          <PlantillaPublica>
+            <DetalleProducto />
           </PlantillaPublica>
         }
       />

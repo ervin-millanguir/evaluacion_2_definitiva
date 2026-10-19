@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import EtiquetaEspecie from '../atoms/EtiquetaEspecie'
 
 const formatoPrecio = new Intl.NumberFormat('es-CL', {
@@ -28,6 +29,12 @@ export default function TarjetaProducto({ producto, onEditar, onEliminar }) {
           <strong>Precio:</strong> {formatoPrecio.format(producto.precio)}
         </p>
         <div className="d-flex gap-2 mt-3">
+          <Link
+            to={`/productos/${encodeURIComponent(producto.id)}`}
+            className="btn btn-outline-success btn-sm"
+          >
+            Ver detalle
+          </Link>
           <button
             type="button"
             className="btn btn-outline-primary btn-sm"
