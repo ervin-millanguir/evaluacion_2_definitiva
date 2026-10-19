@@ -6,27 +6,43 @@ const formatoPrecio = new Intl.NumberFormat('es-CL', {
   maximumFractionDigits: 0,
 })
 
-export default function TarjetaProducto({ producto }) {
+export default function TarjetaProducto({ producto, onEditar, onEliminar }) {
   return (
-    <article className="card h-100 shadow-sm">
+    <article className="card h-100">
       <div className="card-body">
-        <p className="text-success fw-semibold mb-2">
-          {producto.categoria}
+        <h2 className="card-title h5">{producto.nombre}</h2>
+        <p className="card-text mb-2">
+          <strong>Categoría:</strong> {producto.categoria}
         </p>
-
-        <h2 className="h5">{producto.nombre}</h2>
-
-        <EtiquetaEspecie especie={producto.especie} />
-
-        <p className="mt-3 mb-2">
-          Presentación: {producto.presentacion}
+        <p className="card-text mb-2">
+          <strong>Presentación:</strong> {producto.presentacion}
         </p>
-
-        <p className="mb-2">Stock: {producto.stock}</p>
-
-        <p className="fw-bold mb-0">
-          {formatoPrecio.format(producto.precio)}
+        <p className="card-text mb-2">
+          <strong>Especie:</strong>{' '}
+          <EtiquetaEspecie especie={producto.especie} />
         </p>
+        <p className="card-text mb-2">
+          <strong>Stock:</strong> {producto.stock}
+        </p>
+        <p className="card-text">
+          <strong>Precio:</strong> {formatoPrecio.format(producto.precio)}
+        </p>
+        <div className="d-flex gap-2 mt-3">
+          <button
+            type="button"
+            className="btn btn-outline-primary btn-sm"
+            onClick={() => onEditar(producto)}
+          >
+            Editar
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-danger btn-sm"
+            onClick={() => onEliminar(producto.id)}
+          >
+            Eliminar
+          </button>
+        </div>
       </div>
     </article>
   )
