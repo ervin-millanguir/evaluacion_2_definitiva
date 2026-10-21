@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import FormularioProducto from '../components/organisms/FormularioProducto'
 import ListaProductos from '../components/organisms/ListaProductos'
-import { useProductos } from '../context/ProductosContext'
+import { useProductos } from '../context/useProductos'
 
 export default function Productos() {
   const { productos, crear, actualizar, eliminar } = useProductos()

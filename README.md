@@ -40,16 +40,21 @@ npm run build
 npm run preview
 npm run lint
 npm test
+npm run test:run
 npm run test:coverage
+npm run test:cov
 ```
 
 - `npm run dev`: inicia el servidor de desarrollo.
 - `npm run build`: genera la versión de producción.
 - `npm run preview`: sirve localmente la compilación de producción.
 - `npm run lint`: revisa problemas de estilo y código.
-- `npm test`: ejecuta las pruebas unitarias.
-- `npm run test:coverage`: ejecuta las pruebas y genera el informe HTML en
+- `npm test` y `npm run test:run`: ejecutan las pruebas unitarias en modo único.
+- `npm run test:coverage` y `npm run test:cov`: ejecutan las pruebas y generan el informe HTML en
   `coverage/index.html`.
+
+Antes de abrir un Pull Request, ejecuta `npm run test:run` para comprobar que
+la suite completa pase.
 
 ## Funcionalidades
 
@@ -70,6 +75,7 @@ npm run test:coverage
 - Filtro por categoría.
 - Página de categorías.
 - Vista de detalle para cada servicio.
+- Solicitud de citas con confirmación y resumen.
 
 ### Registro y navegación
 
@@ -82,14 +88,15 @@ npm run test:coverage
 - `/inicio`: página de inicio.
 - `/servicios`: catálogo de servicios y filtro por categoría.
 - `/servicios/:id`: detalle de un servicio.
+- `/cita`: formulario para solicitar una cita.
 - `/categorias`: categorías de servicios.
 - `/productos`: catálogo, CRUD, búsqueda y filtros.
 - `/productos/:id`: detalle de un producto.
 
 ## Pruebas
 
-Las pruebas cubren componentes atómicos, componentes moleculares y las
-operaciones del servicio CRUD de productos.
+La suite contiene 10 pruebas y cubre componentes atómicos, componentes
+moleculares y las operaciones del servicio CRUD de productos.
 
 ```bash
 npm test

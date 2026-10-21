@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "oxlint",
     "test": "vitest run",
+    "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "test:cov": "vitest run --coverage",
     "preview": "vite preview"
   },
   "dependencies": {

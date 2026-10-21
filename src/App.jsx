@@ -10,6 +10,7 @@ import Productos from './pages/Productos'
 import DetalleProducto from './pages/DetalleProducto'
 import Categorias from './pages/Categorias'
 import DetalleServicio from './pages/DetalleServicio'
+import Cita from './pages/Cita'
 
 export default function App() {
   return (
@@ -39,6 +40,14 @@ export default function App() {
         element={
           <PlantillaPublica>
             <DetalleServicio />
+          </PlantillaPublica>
+        }
+      />
+      <Route
+        path="/cita"
+        element={
+          <PlantillaPublica>
+            <Cita />
           </PlantillaPublica>
         }
       />

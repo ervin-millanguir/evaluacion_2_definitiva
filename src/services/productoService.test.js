@@ -52,4 +52,20 @@ describe('productoService', () => {
 
     expect(obtenerProducto(creado.id)).toBeNull()
   })
+
+  it('devuelve null cuando busca un producto inexistente', () => {
+    expect(obtenerProducto(999999)).toBeNull()
+  })
+
+  it('devuelve null cuando actualiza un producto inexistente', () => {
+    expect(actualizarProducto(999999, { stock: 8 })).toBeNull()
+  })
+
+  it('mantiene los productos existentes al eliminar un id inexistente', () => {
+    const productosIniciales = listarProductos()
+
+    eliminarProducto(999999)
+
+    expect(listarProductos()).toEqual(productosIniciales)
+  })
 })

@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { useProductos } from '../context/ProductosContext'
+import { useProductos } from '../context/useProductos'
 
 const formatoPrecio = new Intl.NumberFormat('es-CL', {
   style: 'currency',

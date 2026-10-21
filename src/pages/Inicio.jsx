@@ -19,6 +19,10 @@ export default function Inicio() {
           Ver servicios
         </Link>
 
+        <Link to="/cita" className="btn btn-outline-primary">
+          Solicitar una cita
+        </Link>
+
         <Link to="/productos" className="btn btn-outline-success">
           Ver productos
         </Link>
