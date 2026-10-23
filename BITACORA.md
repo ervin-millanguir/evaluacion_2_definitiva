@@ -1,10 +1,19 @@
 # Bitácora de desarrollo - Happy Paws
 
+# ERRORES DE CREACION
+
+Al inicio de este proyecto, tuvimos algunas complicaciones que involucraban
+El inicio de sesión al servidor, lanzando errores de puerto y algunos commits
+que se asociaban a un usuario aparte del creador de dicho cambio.
+
 ## Propósito
 
-Este documento registra las implementaciones, validaciones y problemas
-encontrados durante el desarrollo de Happy Paws, una aplicación React para una
+Esta es una aplicación React para una
 veterinaria y tienda de productos para mascotas.
+
+Este documento registra las implementaciones, validaciones y problemas
+encontrados durante el desarrollo de Happy Paws.
+
 
 ## Estado base
 
@@ -14,7 +23,7 @@ veterinaria y tienda de productos para mascotas.
 - Catálogo adaptado desde `src/data/productos.json`.
 - Persistencia local mediante `localStorage`.
 
-## Implementaciones realizadas
+## IMPLEMENTACIONES REALIZADAS
 
 ### Catálogo y CRUD de productos
 
@@ -47,12 +56,46 @@ veterinaria y tienda de productos para mascotas.
 - La última solicitud se guarda en `localStorage`.
 - Las tarjetas de servicio pueden abrir la cita con el servicio preseleccionado.
 
+### Panel de administración
+
+- Se agregó la ruta `/admin` para identificar explícitamente la gestión interna
+  del catálogo.
+- El panel reutiliza el Context, service, formulario, confirmaciones y lista de
+  productos existentes.
+- Permite listar, crear, editar y eliminar productos sin duplicar la lógica CRUD.
+
+### Autenticación y protección administrativa
+
+- Se creó `authService` para registrar usuarios, iniciar sesión y cerrar sesión
+  usando `localStorage`.
+- Se agregó `AuthProvider` y `useAuth` para mantener la sesión en la aplicación.
+- Se implementó la pantalla `/login` con validaciones y mensajes visibles.
+- Se conectó el formulario de registro con la persistencia local y la validación
+  de correo.
+- Se protegió `/admin`; los usuarios no autenticados son enviados a `/login`.
+- Se agregó cierre de sesión desde la barra de navegación.
+- Esta autenticación es local y educativa; no reemplaza un backend ni almacena
+  credenciales de producción de forma segura.
+
+### Revisión según guía de hooks, formularios y navegación
+
+- Se separaron las reglas de validación en `src/utils/validaciones.js`; son
+  funciones puras y no utilizan estado ni elementos de la interfaz.
+- Los formularios siguen siendo controlados por React, cancelan la recarga con
+  `preventDefault()` y muestran los errores junto al campo correspondiente.
+- La confirmación de contraseña ya no se persiste como parte de la cuenta.
+- Se agregaron las rutas parametrizadas `/categoria/:nombre` y
+  `/buscar/:texto`, leídas mediante `useParams`, manteniendo compatibilidad con
+  los filtros existentes por query parameters.
+- Los detalles de productos y servicios convierten y validan los parámetros
+  antes de buscar el registro correspondiente.
+
 ### Pruebas y cobertura
 
 - Se configuró Vitest con entorno `jsdom`.
 - Se incorporó React Testing Library y `jest-dom`.
 - Se agregaron pruebas para átomos, moléculas y el service CRUD.
-- Se llegó a 10 pruebas aprobadas.
+- Se llegó a 17 pruebas aprobadas.
 - Se configuraron los comandos:
 
   ```bash
@@ -70,7 +113,15 @@ veterinaria y tienda de productos para mascotas.
 - El informe de cobertura HTML se genera en `coverage/index.html`.
 - La carpeta `coverage` está excluida mediante `.gitignore`.
 
-## Errores encontrados y soluciones
+### Documentación de la Semana 10
+
+- Se creó `ERS_VERSION_2.md` con alcance, usuarios, requisitos funcionales,
+  requisitos no funcionales, rutas y criterios de aceptación.
+- Se creó `COBERTURA_TESTING.md` con herramientas, comandos, casos cubiertos,
+  métricas y límites conocidos de la suite.
+- El reporte HTML se genera en `coverage/index.html` y no se versiona.
+
+## ERRORES ENCONTRADOS Y SOLUCIONES
 
 ### Advertencia de Fast Refresh
 
@@ -118,8 +169,5 @@ git diff --check       sin errores de formato
 
 ## Próximos pasos
 
-- Completar el panel de administración solicitado para la Semana 10.
-- Implementar inicio de sesión con validaciones React.
 - Revisar y completar el flujo de error del caso.
-- Preparar el ERS versión 2.
 - Mantener la bitácora actualizada en cada cambio relevante.

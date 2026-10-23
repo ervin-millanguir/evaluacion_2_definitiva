@@ -79,7 +79,12 @@ la suite completa pase.
 
 ### Registro y navegación
 
-- Formulario de registro con validaciones.
+- Formulario de registro con validaciones y persistencia local.
+- Validaciones aisladas en funciones puras para campos obligatorios, correo,
+  contraseña y confirmación.
+- Inicio de sesión con mensajes de error visibles.
+- Sesión persistente mientras exista una cuenta autenticada.
+- Protección de la ruta administrativa y cierre de sesión.
 - Navegación entre inicio, servicios, categorías, productos y registro.
 
 ## Rutas principales
@@ -91,12 +96,17 @@ la suite completa pase.
 - `/cita`: formulario para solicitar una cita.
 - `/categorias`: categorías de servicios.
 - `/productos`: catálogo, CRUD, búsqueda y filtros.
+- `/categoria/:nombre`: catálogo filtrado por una categoría.
+- `/buscar/:texto`: resultados del catálogo según un texto.
 - `/productos/:id`: detalle de un producto.
+- `/login`: inicio de sesión.
+- `/admin`: panel protegido de administración del catálogo.
 
 ## Pruebas
 
-La suite contiene 10 pruebas y cubre componentes atómicos, componentes
-moleculares y las operaciones del servicio CRUD de productos.
+La suite contiene 14 pruebas y cubre componentes atómicos, componentes
+moleculares, autenticación local y las operaciones del servicio CRUD de
+productos.
 
 ```bash
 npm test
@@ -124,6 +134,10 @@ src/
 ```
 
 ## Material complementario
+
+- [ERS versión 2](./ERS_VERSION_2.md)
+- [Documento de cobertura del testing](./COBERTURA_TESTING.md)
+- [Bitácora de desarrollo](./BITACORA.md)
 
 Documentos del semestre:
 

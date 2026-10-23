@@ -11,11 +11,14 @@ import DetalleProducto from './pages/DetalleProducto'
 import Categorias from './pages/Categorias'
 import DetalleServicio from './pages/DetalleServicio'
 import Cita from './pages/Cita'
+import Login from './pages/Login'
+import RutaProtegida from './components/organisms/RutaProtegida'
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Registro />} />
+      <Route path="/login" element={<Login />} />
 
       <Route
         path="/inicio"
@@ -67,6 +70,32 @@ export default function App() {
           <PlantillaPublica>
             <Productos />
           </PlantillaPublica>
+        }
+      />
+      <Route
+        path="/categoria/:nombre"
+        element={
+          <PlantillaPublica>
+            <Productos />
+          </PlantillaPublica>
+        }
+      />
+      <Route
+        path="/buscar/:texto"
+        element={
+          <PlantillaPublica>
+            <Productos />
+          </PlantillaPublica>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <RutaProtegida>
+            <PlantillaPublica>
+              <Productos modoAdministracion />
+            </PlantillaPublica>
+          </RutaProtegida>
         }
       />
       <Route

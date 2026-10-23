@@ -20,7 +20,7 @@ export default function Registro() {
               <FormularioRegistro />
 
               <div className="text-center mt-4">
-                <Link to="/inicio">Ver inicio</Link>
+                <Link to="/login">Ya tengo una cuenta</Link>
               </div>
             </div>
           </section>

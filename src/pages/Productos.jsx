@@ -1,16 +1,17 @@
 import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import FormularioProducto from '../components/organisms/FormularioProducto'
 import ListaProductos from '../components/organisms/ListaProductos'
 import { useProductos } from '../context/useProductos'
 
-export default function Productos() {
+export default function Productos({ modoAdministracion = false }) {
   const { productos, crear, actualizar, eliminar } = useProductos()
   const [searchParams, setSearchParams] = useSearchParams()
+  const { nombre, texto } = useParams()
   const [productoEditado, setProductoEditado] = useState(null)
   const [confirmacion, setConfirmacion] = useState(null)
-  const textoBuscado = searchParams.get('buscar') || ''
-  const categoriaSeleccionada = searchParams.get('categoria') || ''
+  const textoBuscado = texto || searchParams.get('buscar') || ''
+  const categoriaSeleccionada = nombre || searchParams.get('categoria') || ''
 
   const categorias = [
     ...new Set(productos.map((producto) => producto.categoria).filter(Boolean)),
@@ -101,9 +102,13 @@ export default function Productos() {
 
   return (
     <section className="container py-5">
-      <h1 className="mb-2">Productos para mascotas</h1>
+      <h1 className="mb-2">
+        {modoAdministracion ? 'Panel de administración' : 'Productos para mascotas'}
+      </h1>
       <p className="text-muted mb-4">
-        Busca por nombre, principio activo, especie o categoría.
+        {modoAdministracion
+          ? 'Administra el catálogo: crea, edita y elimina productos.'
+          : 'Busca por nombre, principio activo, especie o categoría.'}
       </p>
 
       <FormularioProducto
@@ -145,7 +150,9 @@ export default function Productos() {
               className="form-control"
               placeholder="Ej.: alimento, vacuna o perro"
               value={textoBuscado}
-              onChange={(event) => cambiarFiltro('buscar', event.target.value)}
+              onChange={(event) => {
+                cambiarFiltro('buscar', event.target.value)
+              }}
             />
           </div>
           <div className="col-12 col-md-5">

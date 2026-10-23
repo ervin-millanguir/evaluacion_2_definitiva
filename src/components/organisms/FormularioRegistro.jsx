@@ -1,6 +1,13 @@
 import { useState } from 'react'
 import CampoFormulario from '../molecules/CampoFormulario'
 import Boton from '../atoms/Boton'
+import useAuth from '../../context/useAuth'
+import {
+  validarCampoObligatorio,
+  validarClave,
+  validarConfirmacionClave,
+  validarCorreo,
+} from '../../utils/validaciones'
 
 const datosIniciales = {
   nombre: '',
@@ -40,6 +47,7 @@ export default function FormularioRegistro() {
   const [datos, setDatos] = useState(datosIniciales)
   const [errores, setErrores] = useState({})
   const [enviado, setEnviado] = useState(false)
+  const { registrar } = useAuth()
 
   function manejarCambio(event) {
     const { name, value } = event.target
@@ -59,24 +67,41 @@ export default function FormularioRegistro() {
     const nuevosErrores = {}
 
     for (const campo of ['nombre', 'apellido', 'rut', 'telefono']) {
-      if (!datos[campo].trim()) {
-        nuevosErrores[campo] = 'Completa este campo.'
+      const error = validarCampoObligatorio(datos[campo])
+      if (error) {
+        nuevosErrores[campo] = error
       }
     }
 
-    if (datos.contrasena.length < 8) {
-      nuevosErrores.contrasena =
-        'La contraseña debe tener al menos 8 caracteres.'
+    const errorCorreo = validarCorreo(datos.correo)
+    if (errorCorreo) {
+      nuevosErrores.correo = errorCorreo
     }
 
-    if (datos.contrasena !== datos.confirmarContrasena) {
-      nuevosErrores.confirmarContrasena =
-        'Las contraseñas no coinciden.'
+    const errorClave = validarClave(datos.contrasena)
+    if (errorClave) {
+      nuevosErrores.contrasena = errorClave
+    }
+
+    const errorConfirmacion = validarConfirmacionClave(
+      datos.contrasena,
+      datos.confirmarContrasena,
+    )
+    if (errorConfirmacion) {
+      nuevosErrores.confirmarContrasena = errorConfirmacion
     }
 
     setErrores(nuevosErrores)
 
     if (Object.keys(nuevosErrores).length > 0) {
+      return
+    }
+
+    const datosUsuario = { ...datos }
+    delete datosUsuario.confirmarContrasena
+    const resultado = registrar(datosUsuario)
+    if (!resultado.ok) {
+      setErrores({ correo: resultado.mensaje })
       return
     }
 
@@ -112,7 +137,7 @@ export default function FormularioRegistro() {
 
       {enviado && (
         <div className="alert alert-success mt-3" role="status">
-          ¡Formulario validado! El registro se envió de forma simulada.
+          ¡Registro completado! Ya puedes iniciar sesión con tu cuenta.
         </div>
       )}
     </form>

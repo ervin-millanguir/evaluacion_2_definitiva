@@ -1,20 +1,28 @@
 
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import useAuth from '../../context/useAuth'
 
 const enlaces = [
   { ruta: '/inicio', texto: 'Inicio' },
   { ruta: '/servicios', texto: 'Servicios' },
   { ruta: '/categorias', texto: 'Categorías' },
   { ruta: '/productos', texto: 'Productos' },
+  { ruta: '/admin', texto: 'Administración' },
   { ruta: '/', texto: 'Registro', exacto: true },
 ]
 
 export default function Navbar() {
   const [abierto, setAbierto] = useState(false)
+  const { usuario, estaAutenticado, cerrarSesion } = useAuth()
 
   function cerrarMenu() {
     setAbierto(false)
+  }
+
+  function manejarCierreSesion() {
+    cerrarSesion()
+    cerrarMenu()
   }
 
   return (
@@ -47,7 +55,9 @@ export default function Navbar() {
           className={`collapse navbar-collapse${abierto ? ' show' : ''}`}
         >
           <ul className="navbar-nav ms-auto">
-            {enlaces.map((enlace) => (
+            {enlaces
+              .filter((enlace) => enlace.ruta !== '/admin' || estaAutenticado)
+              .map((enlace) => (
               <li className="nav-item" key={enlace.ruta}>
                 <NavLink
                   to={enlace.ruta}
@@ -60,7 +70,33 @@ export default function Navbar() {
                   {enlace.texto}
                 </NavLink>
               </li>
-            ))}
+              ))}
+            {estaAutenticado ? (
+              <li className="nav-item d-flex align-items-center">
+                <span className="nav-link text-muted">
+                  Hola, {usuario.nombre}
+                </span>
+                <button
+                  type="button"
+                  className="btn btn-link nav-link"
+                  onClick={manejarCierreSesion}
+                >
+                  Cerrar sesión
+                </button>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <NavLink
+                  to="/login"
+                  onClick={cerrarMenu}
+                  className={({ isActive }) =>
+                    `nav-link${isActive ? ' active fw-bold text-success' : ''}`
+                  }
+                >
+                  Iniciar sesión
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>
