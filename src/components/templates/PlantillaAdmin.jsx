@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 
 export default function PlantillaAdmin({ children }) {
   const enlaces = [
+    { to: '/admin', texto: 'Dashboard', exacto: true },
     { to: '/admin/servicios', texto: 'Servicios' },
     { to: '/admin/productos', texto: 'Productos' },
     { to: '/admin/citas', texto: 'Citas' },
@@ -12,7 +13,7 @@ export default function PlantillaAdmin({ children }) {
     <div className="min-vh-100 d-flex flex-column bg-light">
       <header className="bg-dark text-white py-3">
         <div className="container d-flex flex-wrap justify-content-between align-items-center gap-3">
-          <Link to="/admin/servicios" className="text-white text-decoration-none fw-bold fs-4">
+          <Link to="/admin" className="text-white text-decoration-none fw-bold fs-4">
             HAPPY PAWS | Administración
           </Link>
 
@@ -24,6 +25,7 @@ export default function PlantillaAdmin({ children }) {
                 className={({ isActive }) =>
                   `text-decoration-none ${isActive ? 'text-warning fw-bold' : 'text-white'}`
                 }
+                end={enlace.exacto}
               >
                 {enlace.texto}
               </NavLink>

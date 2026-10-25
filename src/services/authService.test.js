@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import {
   cerrarSesion,
   iniciarSesion,
+  listarUsuarios,
   obtenerSesion,
   registrarUsuario,
 } from './authService'
@@ -32,6 +33,18 @@ describe('authService', () => {
 
     expect(resultado.ok).toBe(false)
     expect(resultado.mensaje).toContain('Ya existe')
+  })
+
+  it('lista usuarios sin exponer contraseñas', () => {
+    registrarUsuario(usuario)
+
+    expect(listarUsuarios()).toEqual([
+      {
+        nombre: 'Ana',
+        apellido: 'Pérez',
+        correo: 'ana@correo.cl',
+      },
+    ])
   })
 
   it('inicia sesión y guarda solo los datos públicos del usuario', () => {

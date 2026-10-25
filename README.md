@@ -101,7 +101,8 @@ la suite completa pase.
 
 ## Rutas principales
 
-- `/`: registro.
+- `/`: inicio de sesión.
+- `/registro`: registro de cliente.
 - `/inicio`: página de inicio.
 - `/servicios`: catálogo de servicios y filtro por categoría.
 - `/servicios/:id`: detalle de un servicio.
@@ -115,14 +116,15 @@ la suite completa pase.
 - `/buscar/:texto`: resultados del catálogo según un texto.
 - `/productos/:id`: detalle de un producto.
 - `/login`: inicio de sesión.
-- `/admin`: redirección al panel protegido.
+- `/admin`: dashboard administrativo protegido, con resumen y accesos a los
+  módulos.
 - `/admin/productos`: CRUD protegido de productos.
 - `/admin/servicios`: CRUD administrativo de servicios.
 - `/admin/citas`: gestión administrativa de estados de citas.
 
 ## Pruebas
 
-La suite contiene 22 pruebas y cubre componentes atómicos, componentes
+La suite contiene 23 pruebas y cubre componentes atómicos, componentes
 moleculares, autenticación local, validaciones y las operaciones del servicio
 CRUD de productos.
 

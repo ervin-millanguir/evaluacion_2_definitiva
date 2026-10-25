@@ -24,6 +24,14 @@ export function registrarUsuario(usuario) {
   return { ok: true, usuario: nuevoUsuario }
 }
 
+export function listarUsuarios() {
+  return leerUsuarios().map((usuario) => {
+    const usuarioPublico = { ...usuario }
+    delete usuarioPublico.contrasena
+    return usuarioPublico
+  })
+}
+
 export function iniciarSesion(correo, contrasena) {
   const correoNormalizado = correo.trim().toLowerCase()
   const usuario = leerUsuarios().find(

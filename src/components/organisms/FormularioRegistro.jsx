@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CampoFormulario from '../molecules/CampoFormulario'
 import Boton from '../atoms/Boton'
 import useAuth from '../../context/useAuth'
@@ -48,6 +49,19 @@ export default function FormularioRegistro() {
   const [errores, setErrores] = useState({})
   const [enviado, setEnviado] = useState(false)
   const { registrar } = useAuth()
+  const navegar = useNavigate()
+
+  useEffect(() => {
+    if (!enviado) {
+      return undefined
+    }
+
+    const temporizador = setTimeout(() => {
+      navegar('/login', { replace: true })
+    }, 750)
+
+    return () => clearTimeout(temporizador)
+  }, [enviado, navegar])
 
   function manejarCambio(event) {
     const { name, value } = event.target

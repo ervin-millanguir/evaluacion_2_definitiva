@@ -76,7 +76,7 @@ export default function Login() {
               </form>
 
               <p className="text-center mt-4 mb-0">
-                ¿No tienes una cuenta? <Link to="/">Regístrate</Link>
+                ¿No tienes una cuenta? <Link to="/registro">Regístrate</Link>
               </p>
             </div>
           </section>

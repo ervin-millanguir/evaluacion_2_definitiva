@@ -43,7 +43,7 @@ Puede:
 
 ### Administrador
 
-Puede acceder a `/admin` después de iniciar sesión y:
+Puede acceder al panel administrativo después de iniciar sesión y:
 
 - Listar productos.
 - Crear productos.
@@ -97,7 +97,7 @@ El sistema debe mostrar productos veterinarios y permitir:
 
 ### RF-06: Gestión administrativa de productos
 
-El panel `/admin` debe permitir:
+El módulo `/admin/productos` debe permitir:
 
 - Crear un producto.
 - Editar un producto existente.
@@ -170,7 +170,8 @@ git diff --check
 
 | Ruta | Descripción |
 |---|---|
-| `/` | Registro de cliente |
+| `/` | Inicio de sesión |
+| `/registro` | Registro de cliente |
 | `/login` | Inicio de sesión |
 | `/inicio` | Página principal |
 | `/servicios` | Catálogo de servicios |
@@ -181,7 +182,10 @@ git diff --check
 | `/productos/:id` | Detalle de producto |
 | `/categoria/:nombre` | Productos de una categoría |
 | `/buscar/:texto` | Resultados de búsqueda |
-| `/admin` | Panel protegido de administración |
+| `/admin` | Dashboard protegido de administración |
+| `/admin/productos` | Gestión protegida de productos |
+| `/admin/servicios` | Gestión protegida de servicios |
+| `/admin/citas` | Gestión protegida de citas |
 
 ## 8. Persistencia local
 
@@ -203,4 +207,3 @@ git diff --check
 - El CRUD modifica el catálogo y conserva los cambios.
 - La solicitud de cita permite confirmar y guardar los datos.
 - Las pruebas automatizadas pasan antes de entregar la versión.
-

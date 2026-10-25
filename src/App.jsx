@@ -18,12 +18,14 @@ import CitaResultado from './pages/CitaResultado'
 import MisCitas from './pages/MisCitas'
 import AdminServicios from './pages/AdminServicios'
 import AdminCitas from './pages/AdminCitas'
+import AdminDashboard from './pages/AdminDashboard'
 import PlantillaAdmin from './components/templates/PlantillaAdmin'
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Registro />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/registro" element={<Registro />} />
       <Route path="/login" element={<Login />} />
 
       <Route
@@ -132,7 +134,11 @@ export default function App() {
 
       <Route
         path="/admin"
-        element={<Navigate to="/admin/servicios" replace />}
+        element={
+          <RutaProtegida>
+            <AdminDashboard />
+          </RutaProtegida>
+        }
       />
 
       <Route

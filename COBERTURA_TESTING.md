@@ -50,12 +50,12 @@ Salida validada con `npm run test:cov`:
 
 ```text
 Test Files  9 passed (9)
-Tests       22 passed (22)
+Tests       23 passed (23)
 
-Statements   : 99.08% (108/109)
+Statements   : 99.11% (112/113)
 Branches     : 87.01% (67/77)
-Functions    : 100% (49/49)
-Lines        : 99% (99/100)
+Functions    : 100% (51/51)
+Lines        : 99.03% (103/104)
 ```
 
 Las ramas no cubiertas corresponden a casos defensivos de persistencia:
@@ -77,7 +77,7 @@ eliminación.
 | `src/services/servicioService.test.js` | 2 | Listar, crear, actualizar y eliminar servicios |
 | `src/services/citaService.test.js` | 2 | Crear citas, listar y actualizar estados |
 | `src/utils/iconosCatalogo.test.js` | 1 | Emojis de categorías conocidas y valor predeterminado |
-| **Total** | **22** | **Servicios, validaciones y componentes seleccionados** |
+| **Total** | **23** | **Servicios, validaciones y componentes seleccionados** |
 
 ## 6. Métricas
 
@@ -92,10 +92,10 @@ Las métricas se obtienen directamente desde el reporte de Vitest:
 
 | Métrica | Resultado |
 |---|---:|
-| Statements | 99.08% (108/109) |
+| Statements | 99.11% (112/113) |
 | Branches | 87.01% (67/77) |
-| Functions | 100% (49/49) |
-| Lines | 99% (99/100) |
+| Functions | 100% (51/51) |
+| Lines | 99.03% (103/104) |
 
 La evidencia final debe incluir una captura de la salida de la terminal
 producida por `npm run test:cov` y, si se requiere mayor detalle, una captura

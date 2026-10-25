@@ -70,6 +70,10 @@ encontrados durante el desarrollo de Happy Paws.
   usando `localStorage`.
 - Se agregó `AuthProvider` y `useAuth` para mantener la sesión en la aplicación.
 - Se implementó la pantalla `/login` con validaciones y mensajes visibles.
+- La entrada `/` muestra primero el inicio de sesión y el registro quedó
+  disponible en `/registro`.
+- Después de un registro exitoso se muestra una confirmación durante 750 ms y
+  se redirige automáticamente al inicio de sesión.
 - Se conectó el formulario de registro con la persistencia local y la validación
   de correo.
 - Se protegió `/admin`; los usuarios no autenticados son enviados a `/login`.
@@ -117,6 +121,15 @@ encontrados durante el desarrollo de Happy Paws.
 - El CRUD de productos queda disponible exclusivamente en `/admin/productos`,
   dentro de la plantilla administrativa protegida.
 - El catálogo público conserva consulta, detalle, búsqueda y filtros.
+
+### Dashboard administrativo
+
+- Se creó `/admin` como dashboard protegido con resumen de productos,
+  servicios, solicitudes y usuarios.
+- Se agregaron accesos directos a los módulos administrativos y una tabla con
+  las solicitudes más recientes.
+- Se agregó `listarUsuarios()` al service de autenticación para entregar datos
+  públicos sin exponer contraseñas.
 
 ### Revisión según guía de hooks, formularios y navegación
 

@@ -10,8 +10,8 @@ const enlaces = [
   { ruta: '/productos', texto: 'Productos' },
   { ruta: '/solicitar-cita', texto: 'Solicitar cita' },
   { ruta: '/mis-citas', texto: 'Mis citas' },
-  { ruta: '/admin/servicios', texto: 'Administración' },
-  { ruta: '/', texto: 'Registro', exacto: true },
+  { ruta: '/admin', texto: 'Administración' },
+  { ruta: '/registro', texto: 'Registro', exacto: true },
 ]
 
 export default function Navbar() {
@@ -59,7 +59,7 @@ export default function Navbar() {
           <ul className="navbar-nav ms-auto align-items-lg-center">
             {enlaces
               .filter((enlace) => {
-                if (enlace.ruta === '/admin/servicios') {
+                if (enlace.ruta === '/admin') {
                   return estaAutenticado
                 }
                 return true
