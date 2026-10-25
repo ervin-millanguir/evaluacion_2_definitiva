@@ -111,31 +111,39 @@ export default function Productos({ modoAdministracion = false }) {
           : 'Busca por nombre, principio activo, especie o categoría.'}
       </p>
 
-      <FormularioProducto
-        key={productoEditado?.id ?? 'nuevo'}
-        productoEditado={productoEditado}
-        onSolicitarGuardar={solicitarGuardar}
-        onCancelar={cancelarEdicion}
-      />
-      {confirmacion && (
-        <div
-          className="alert alert-warning d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3"
-          role="alert"
-        >
-          <strong>{mensajeConfirmacion()}</strong>
-          <div className="d-flex gap-2">
-            <button type="button" className="btn btn-success" onClick={confirmar}>
-              Sí, confirmar
-            </button>
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={cancelarAccion}
+      {modoAdministracion && (
+        <>
+          <FormularioProducto
+            key={productoEditado?.id ?? 'nuevo'}
+            productoEditado={productoEditado}
+            onSolicitarGuardar={solicitarGuardar}
+            onCancelar={cancelarEdicion}
+          />
+          {confirmacion && (
+            <div
+              className="alert alert-warning d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3"
+              role="alert"
             >
-              Cancelar
-            </button>
-          </div>
-        </div>
+              <strong>{mensajeConfirmacion()}</strong>
+              <div className="d-flex gap-2">
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  onClick={confirmar}
+                >
+                  Sí, confirmar
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={cancelarAccion}
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          )}
+        </>
       )}
       <div className="card card-body mb-4">
         <h2 className="h5">Buscar y filtrar catálogo</h2>
@@ -188,8 +196,8 @@ export default function Productos({ modoAdministracion = false }) {
       </div>
       <ListaProductos
         productos={productosFiltrados}
-        onEditar={setProductoEditado}
-        onEliminar={eliminarProducto}
+        onEditar={modoAdministracion ? setProductoEditado : undefined}
+        onEliminar={modoAdministracion ? eliminarProducto : undefined}
       />
     </section>
   )

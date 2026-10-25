@@ -13,6 +13,7 @@ export default function ListaProductos({ productos, onEditar, onEliminar }) {
             producto={producto}
             onEditar={onEditar}
             onEliminar={onEliminar}
+            mostrarAcciones={Boolean(onEditar && onEliminar)}
           />
         </div>
       ))}

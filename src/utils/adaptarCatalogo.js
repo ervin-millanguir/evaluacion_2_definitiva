@@ -1,4 +1,5 @@
 import catalogo from '../data/productos.json'
+import { emojiProducto, emojiServicio } from './iconosCatalogo'
 
 const filasServicios = catalogo.Servicios
 const filasProductos = catalogo['Medicamentos y Vacunas']
@@ -24,6 +25,7 @@ export const serviciosIniciales = filasServicios
     duracion: fila.Column5,
     precio: Number(fila.Column6),
     observaciones: fila.Column7 ?? '',
+    emoji: emojiServicio(fila.Column2),
   }))
 
 export const productosIniciales = filasProductos
@@ -42,4 +44,5 @@ export const productosIniciales = filasProductos
     especie: fila.Column6,
     stock: Number(fila.Column7),
     precio: Number(fila.Column8),
+    emoji: emojiProducto(fila.Column2),
   }))

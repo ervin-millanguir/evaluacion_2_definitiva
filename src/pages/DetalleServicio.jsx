@@ -1,6 +1,7 @@
 
 import { Link, useParams } from 'react-router-dom'
 import { serviciosIniciales } from '../utils/adaptarCatalogo'
+import { emojiServicio } from '../utils/iconosCatalogo'
 
 export default function DetalleServicio() {
   const { id } = useParams()
@@ -42,7 +43,7 @@ export default function DetalleServicio() {
           <article className="card border-0 shadow-sm">
             <div className="card-body p-4 p-md-5">
               <span className="badge bg-success mb-3">
-                {servicio.categoria}
+              {servicio.emoji || emojiServicio(servicio.categoria)} {servicio.categoria}
               </span>
 
               <h1 className="fw-bold mb-4">{servicio.nombre}</h1>

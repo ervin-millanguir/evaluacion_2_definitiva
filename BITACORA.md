@@ -99,6 +99,25 @@ encontrados durante el desarrollo de Happy Paws.
   `SelectorFechaHora.jsx`, `Icono.jsx`, `Selector.jsx`,
   `ProductosContext.jsx`, `App.css` y assets de Vite no utilizados.
 
+### Mejora visual del catálogo y página de inicio
+
+- Se creó `iconosCatalogo.js` para asignar emojis por categoría de productos y
+  servicios, con un valor predeterminado para categorías nuevas.
+- Se mostraron los emojis en tarjetas y vistas de detalle.
+- Se agregó una sección de tres productos destacados en la página de inicio,
+  reutilizando `ProductosContext` y `TarjetaProducto`.
+- Las tarjetas públicas no muestran acciones administrativas de editar o
+  eliminar.
+- Se agregó una prueba para verificar el mapeo de emojis.
+
+### Separación entre catálogo público y administración
+
+- Se ocultó el formulario de productos y las acciones de editar/eliminar en
+  `/productos`.
+- El CRUD de productos queda disponible exclusivamente en `/admin/productos`,
+  dentro de la plantilla administrativa protegida.
+- El catálogo público conserva consulta, detalle, búsqueda y filtros.
+
 ### Revisión según guía de hooks, formularios y navegación
 
 - Se separaron las reglas de validación en `src/utils/validaciones.js`; son

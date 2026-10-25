@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom'
 export default function PlantillaAdmin({ children }) {
   const enlaces = [
     { to: '/admin/servicios', texto: 'Servicios' },
+    { to: '/admin/productos', texto: 'Productos' },
     { to: '/admin/citas', texto: 'Citas' },
   ]
 

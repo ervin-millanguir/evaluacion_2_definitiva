@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import EtiquetaEspecie from '../atoms/EtiquetaEspecie'
+import { emojiProducto } from '../../utils/iconosCatalogo'
 
 const formatoPrecio = new Intl.NumberFormat('es-CL', {
   style: 'currency',
@@ -7,11 +8,23 @@ const formatoPrecio = new Intl.NumberFormat('es-CL', {
   maximumFractionDigits: 0,
 })
 
-export default function TarjetaProducto({ producto, onEditar, onEliminar }) {
+export default function TarjetaProducto({
+  producto,
+  onEditar,
+  onEliminar,
+  mostrarAcciones = false,
+}) {
+  const emoji = producto.emoji || emojiProducto(producto.categoria)
+
   return (
     <article className="card h-100">
       <div className="card-body">
-        <h2 className="card-title h5">{producto.nombre}</h2>
+        <div className="d-flex align-items-start gap-3 mb-3">
+          <span className="fs-1" role="img" aria-label={`Categoría: ${producto.categoria}`}>
+            {emoji}
+          </span>
+          <h2 className="card-title h5 mb-0">{producto.nombre}</h2>
+        </div>
         <p className="card-text mb-2">
           <strong>Categoría:</strong> {producto.categoria}
         </p>
@@ -35,20 +48,24 @@ export default function TarjetaProducto({ producto, onEditar, onEliminar }) {
           >
             Ver detalle
           </Link>
-          <button
-            type="button"
-            className="btn btn-outline-primary btn-sm"
-            onClick={() => onEditar(producto)}
-          >
-            Editar
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-danger btn-sm"
-            onClick={() => onEliminar(producto.id)}
-          >
-            Eliminar
-          </button>
+          {mostrarAcciones && (
+            <>
+              <button
+                type="button"
+                className="btn btn-outline-primary btn-sm"
+                onClick={() => onEditar(producto)}
+              >
+                Editar
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-danger btn-sm"
+                onClick={() => onEliminar(producto.id)}
+              >
+                Eliminar
+              </button>
+            </>
+          )}
         </div>
       </div>
     </article>

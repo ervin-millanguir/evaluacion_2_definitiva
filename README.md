@@ -61,7 +61,10 @@ la suite completa pase.
 ### Catálogo de productos
 
 - Listado de productos veterinarios.
-- Crear, editar y eliminar productos.
+- El catálogo público es de consulta; la gestión CRUD está disponible solo en
+  `/admin/productos`.
+- Emojis visuales según la categoría del producto.
+- Crear, editar y eliminar productos desde el panel administrativo.
 - Confirmación visual antes de agregar, guardar cambios o eliminar.
 - Persistencia de datos en `localStorage`.
 - Categorías veterinarias mediante selector.
@@ -72,12 +75,19 @@ la suite completa pase.
 ### Servicios
 
 - Listado de servicios veterinarios.
+- Emojis visuales según la categoría del servicio.
 - Filtro por categoría.
 - Página de categorías.
 - Vista de detalle para cada servicio.
 - Solicitud de citas con validación, resultado y resumen.
 - Consulta de mis citas.
 - Panel protegido para administrar servicios y estados de citas.
+
+### Página de inicio
+
+- Sección de productos destacados obtenida desde `ProductosContext`.
+- La sección muestra tres productos del catálogo y enlaza al detalle y al
+  catálogo completo.
 
 ### Registro y navegación
 
@@ -100,18 +110,19 @@ la suite completa pase.
 - `/cita-resultado`: resultado y resumen de la solicitud.
 - `/mis-citas`: citas guardadas en el navegador.
 - `/categorias`: categorías de servicios.
-- `/productos`: catálogo, CRUD, búsqueda y filtros.
+- `/productos`: catálogo público, búsqueda, filtros y detalles.
 - `/categoria/:nombre`: catálogo filtrado por una categoría.
 - `/buscar/:texto`: resultados del catálogo según un texto.
 - `/productos/:id`: detalle de un producto.
 - `/login`: inicio de sesión.
 - `/admin`: redirección al panel protegido.
+- `/admin/productos`: CRUD protegido de productos.
 - `/admin/servicios`: CRUD administrativo de servicios.
 - `/admin/citas`: gestión administrativa de estados de citas.
 
 ## Pruebas
 
-La suite contiene 21 pruebas y cubre componentes atómicos, componentes
+La suite contiene 22 pruebas y cubre componentes atómicos, componentes
 moleculares, autenticación local, validaciones y las operaciones del servicio
 CRUD de productos.
 

@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { useProductos } from '../context/useProductos'
+import { emojiProducto } from '../utils/iconosCatalogo'
 
 const formatoPrecio = new Intl.NumberFormat('es-CL', {
   style: 'currency',
@@ -47,7 +48,9 @@ export default function DetalleProducto() {
 
           <article className="card border-0 shadow-sm">
             <div className="card-body p-4 p-md-5">
-              <span className="badge bg-success mb-3">{producto.categoria}</span>
+              <span className="badge bg-success mb-3">
+                {producto.emoji || emojiProducto(producto.categoria)} {producto.categoria}
+              </span>
               <h1 className="fw-bold mb-4">{producto.nombre}</h1>
 
               <dl className="row">

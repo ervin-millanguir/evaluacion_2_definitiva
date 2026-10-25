@@ -49,13 +49,13 @@ La carpeta `coverage/` es un resultado generado y está excluida de Git.
 Salida validada con `npm run test:cov`:
 
 ```text
-Test Files  8 passed (8)
-Tests       21 passed (21)
+Test Files  9 passed (9)
+Tests       22 passed (22)
 
-Statements   : 99.04% (104/105)
-Branches     : 87.67% (64/73)
-Functions    : 100% (47/47)
-Lines        : 98.95% (95/96)
+Statements   : 99.08% (108/109)
+Branches     : 87.01% (67/77)
+Functions    : 100% (49/49)
+Lines        : 99% (99/100)
 ```
 
 Las ramas no cubiertas corresponden a casos defensivos de persistencia:
@@ -76,7 +76,8 @@ eliminación.
 | `src/utils/validaciones.test.js` | 3 | Obligatorios, correo, contraseña y confirmación |
 | `src/services/servicioService.test.js` | 2 | Listar, crear, actualizar y eliminar servicios |
 | `src/services/citaService.test.js` | 2 | Crear citas, listar y actualizar estados |
-| **Total** | **21** | **Servicios, validaciones y componentes seleccionados** |
+| `src/utils/iconosCatalogo.test.js` | 1 | Emojis de categorías conocidas y valor predeterminado |
+| **Total** | **22** | **Servicios, validaciones y componentes seleccionados** |
 
 ## 6. Métricas
 
@@ -91,10 +92,10 @@ Las métricas se obtienen directamente desde el reporte de Vitest:
 
 | Métrica | Resultado |
 |---|---:|
-| Statements | 99.04% (104/105) |
-| Branches | 87.67% (64/73) |
-| Functions | 100% (47/47) |
-| Lines | 98.95% (95/96) |
+| Statements | 99.08% (108/109) |
+| Branches | 87.01% (67/77) |
+| Functions | 100% (49/49) |
+| Lines | 99% (99/100) |
 
 La evidencia final debe incluir una captura de la salida de la terminal
 producida por `npm run test:cov` y, si se requiere mayor detalle, una captura

@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom'
 import EtiquetaEspecie from '../atoms/EtiquetaEspecie'
+import { emojiServicio } from '../../utils/iconosCatalogo'
 
 export default function TarjetaServicio({ servicio }) {
   const precioValido =
@@ -16,13 +17,14 @@ export default function TarjetaServicio({ servicio }) {
         maximumFractionDigits: 0,
       })
     : 'Precio no disponible'
+  const emoji = servicio.emoji || emojiServicio(servicio.categoria)
 
   return (
     <article className="card h-100 border-0 shadow-sm">
       <div className="card-body p-4 d-flex flex-column">
         <div className="d-flex justify-content-between align-items-start gap-2 mb-3">
           <span className="badge bg-success">
-            {servicio.categoria || 'Servicio'}
+            {emoji} {servicio.categoria || 'Servicio'}
           </span>
 
           <span className="small text-muted">

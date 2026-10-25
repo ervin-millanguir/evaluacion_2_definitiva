@@ -18,6 +18,7 @@ import CitaResultado from './pages/CitaResultado'
 import MisCitas from './pages/MisCitas'
 import AdminServicios from './pages/AdminServicios'
 import AdminCitas from './pages/AdminCitas'
+import PlantillaAdmin from './components/templates/PlantillaAdmin'
 
 export default function App() {
   return (
@@ -139,6 +140,17 @@ export default function App() {
         element={
           <RutaProtegida>
             <AdminServicios />
+          </RutaProtegida>
+        }
+      />
+
+      <Route
+        path="/admin/productos"
+        element={
+          <RutaProtegida>
+            <PlantillaAdmin>
+              <Productos modoAdministracion />
+            </PlantillaAdmin>
           </RutaProtegida>
         }
       />
