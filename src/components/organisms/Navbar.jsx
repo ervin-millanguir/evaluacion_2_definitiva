@@ -10,8 +10,10 @@ const enlaces = [
   { ruta: '/productos', texto: 'Productos' },
   { ruta: '/solicitar-cita', texto: 'Solicitar cita' },
   { ruta: '/mis-citas', texto: 'Mis citas' },
-  { ruta: '/admin', texto: 'Administración' },
-  { ruta: '/registro', texto: 'Registro', exacto: true },
+  { ruta: '/admin', texto: 'Administración', admin: true },
+  { ruta: '/admin/servicios', texto: 'Admin: servicios', admin: true },
+  { ruta: '/admin/citas', texto: 'Admin: citas', admin: true },
+  { ruta: '/', texto: 'Registro', exacto: true },
 ]
 
 export default function Navbar() {
@@ -29,20 +31,23 @@ export default function Navbar() {
 
   return (
     <nav
-      className="navbar navbar-expand-lg bg-white border-bottom"
+      className="navbar navbar-expand-xl navbar-happy-paws sticky-top"
       aria-label="Navegación principal"
     >
-      <div className="container">
+      <div className="container-fluid px-3 px-xl-4">
         <Link
           to="/inicio"
-          className="navbar-brand fw-bold text-success"
+          className="navbar-brand navbar-marca"
           onClick={cerrarMenu}
         >
-          HAPPY PAWS
+          <span className="brand-icon me-2" aria-hidden="true">
+            🐾
+          </span>
+          <span>HAPPY PAWS</span>
         </Link>
 
         <button
-          className="navbar-toggler"
+          className="navbar-toggler navbar-toggler-happy"
           type="button"
           aria-label="Abrir o cerrar menú"
           aria-controls="menu-principal"
@@ -56,14 +61,9 @@ export default function Navbar() {
           id="menu-principal"
           className={`collapse navbar-collapse${abierto ? ' show' : ''}`}
         >
-          <ul className="navbar-nav ms-auto align-items-lg-center">
+          <ul className="navbar-nav ms-xl-auto align-items-xl-center gap-1 py-3 py-xl-0">
             {enlaces
-              .filter((enlace) => {
-                if (enlace.ruta === '/admin') {
-                  return estaAutenticado
-                }
-                return true
-              })
+              .filter((enlace) => !enlace.admin || estaAutenticado)
               .map((enlace) => (
                 <li className="nav-item" key={enlace.ruta}>
                   <NavLink
@@ -71,7 +71,7 @@ export default function Navbar() {
                     end={enlace.exacto || false}
                     onClick={cerrarMenu}
                     className={({ isActive }) =>
-                      `nav-link${isActive ? ' active fw-bold text-success' : ''}`
+                      `nav-link navbar-enlace${isActive ? ' active' : ''}`
                     }
                   >
                     {enlace.texto}
@@ -80,25 +80,30 @@ export default function Navbar() {
               ))}
 
             {estaAutenticado ? (
-              <li className="nav-item d-flex align-items-center">
-                <span className="nav-link text-muted">
-                  Hola, {usuario.nombre}
-                </span>
-                <button
-                  type="button"
-                  className="btn btn-link nav-link"
-                  onClick={manejarCierreSesion}
-                >
-                  Cerrar sesión
-                </button>
-              </li>
+              <>
+                <li className="nav-item ms-xl-2">
+                  <span className="navbar-saludo">
+                    Hola, {usuario.nombre}
+                  </span>
+                </li>
+
+                <li className="nav-item">
+                  <button
+                    type="button"
+                    className="btn navbar-btn-salir"
+                    onClick={manejarCierreSesion}
+                  >
+                    Cerrar sesión
+                  </button>
+                </li>
+              </>
             ) : (
-              <li className="nav-item">
+              <li className="nav-item ms-xl-2">
                 <NavLink
                   to="/login"
                   onClick={cerrarMenu}
                   className={({ isActive }) =>
-                    `nav-link${isActive ? ' active fw-bold text-success' : ''}`
+                    `btn navbar-btn-login${isActive ? ' active' : ''}`
                   }
                 >
                   Iniciar sesión

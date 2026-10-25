@@ -1,10 +1,353 @@
+
+:root {
+  font-family: Arial, sans-serif;
+  color: #24332b;
+  background-color: #f4f8f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --hp-green: #198754;
+  --hp-green-dark: #146c43;
+  --hp-green-light: #e8f5ed;
+  --hp-background: #f4f8f5;
+  --hp-text: #24332b;
+  --hp-muted: #68776e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  background-color: #f4f8f5;
-  color: #24332b;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--hp-background);
+  color: var(--hp-text);
   font-family: Arial, sans-serif;
 }
 
 #root {
   min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.navbar-happy-paws {
+  background-color: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #e1eae3;
+  box-shadow: 0 3px 15px rgba(32, 68, 45, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-happy-paws .navbar-brand {
+  letter-spacing: 0.04em;
+  font-size: 1.15rem;
+}
+
+.brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background-color: var(--hp-green-light);
+}
+
+.navbar-enlace {
+  padding: 0.6rem 0.85rem !important;
+  border-radius: 999px;
+  color: #425248;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.navbar-enlace:hover,
+.navbar-enlace.active {
+  background-color: var(--hp-green-light);
+  color: var(--hp-green-dark) !important;
+}
+
+.servicios-page {
+  width: 100%;
+}
+
+.servicios-hero {
+  overflow: hidden;
+  color: var(--hp-text);
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(25, 135, 84, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #ffffff 0%, #eaf6ee 100%);
+  border: 1px solid #e0eee4;
+}
+
+.servicios-hero h1 {
+  color: #215b3b;
+  letter-spacing: -0.035em;
+}
+
+.servicios-hero .lead {
+  max-width: 650px;
+  color: #596b60;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.servicios-toolbar {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #e0e8e2;
+}
+
+.servicios-toolbar h2 {
+  color: #294d37;
+}
+
+.servicios-filtro {
+  width: 100%;
+  max-width: 340px;
+}
+
+.servicios-filtro .form-select {
+  min-height: 46px;
+  border-color: #d5e3d9;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.servicios-filtro .form-select:focus {
+  border-color: var(--hp-green);
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.14);
+}
+
+.servicios-lista > div {
+  display: flex;
+}
+
+.servicio-card {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #e5ece7 !important;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 5px 18px rgba(35, 70, 46, 0.055);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-4px);
+  border-color: #c6e3d0 !important;
+  box-shadow: 0 14px 30px rgba(35, 70, 46, 0.11);
+}
+
+.servicio-id {
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  background-color: #f2f5f3;
+  color: #69766d;
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.servicio-titulo {
+  min-height: 2.8rem;
+  color: #294d37;
+  line-height: 1.4;
+}
+
+.servicio-dato {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #edf1ee;
+}
+
+.servicio-etiqueta {
+  margin-bottom: 0.35rem;
+  color: var(--hp-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.servicio-precio {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background-color: #f1f8f3;
+}
+
+.servicio-precio .fs-4 {
+  overflow-wrap: anywhere;
+}
+
+.servicio-observaciones {
+  color: var(--hp-muted);
+  line-height: 1.6;
+}
+
+.servicio-card .btn {
+  min-height: 42px;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn-success {
+  --bs-btn-bg: var(--hp-green);
+  --bs-btn-border-color: var(--hp-green);
+  --bs-btn-hover-bg: var(--hp-green-dark);
+  --bs-btn-hover-border-color: var(--hp-green-dark);
+}
+
+.btn-outline-success {
+  --bs-btn-color: var(--hp-green-dark);
+  --bs-btn-border-color: #8bb99b;
+  --bs-btn-hover-bg: var(--hp-green);
+  --bs-btn-hover-border-color: var(--hp-green);
+}
+
+.plantilla-publica footer {
+  margin-top: auto;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-happy-paws .navbar-collapse {
+    padding: 0.75rem 0 1rem;
+  }
+
+  .navbar-happy-paws .navbar-nav {
+    align-items: stretch !important;
+  }
+
+  .navbar-enlace {
+    border-radius: 10px;
+  }
+
+  .servicios-filtro {
+    max-width: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .servicios-hero {
+    padding: 1.5rem !important;
+    border-radius: 18px !important;
+  }
+
+  .servicios-hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .servicios-hero .lead {
+    font-size: 1rem;
+  }
+
+  .servicio-card .card-body {
+    padding: 1.25rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+.navbar-happy-paws {
+  background: linear-gradient(110deg, #123d2a, #176b45) !important;
+  width: 100%;
+}
+
+.navbar-happy-paws > .container {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+.navbar-happy-paws .navbar-collapse,
+.navbar-happy-paws .navbar-nav,
+.navbar-happy-paws .nav-item {
+  background-color: transparent !important;
+}
+
+
+.navbar-happy-paws .navbar-brand,
+.navbar-happy-paws .navbar-enlace,
+.navbar-happy-paws .navbar-saludo {
+  color: #ffffff !important;
+}
+
+
+.navbar-happy-paws .navbar-enlace:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+
+.navbar-happy-paws .navbar-enlace.active {
+  color: #14532d !important;
+  background-color: #ffffff !important;
+}
+
+
+.navbar-happy-paws .navbar-btn-salir {
+  color: #ffffff !important;
+  background-color: #b93838 !important;
+  border: 1px solid #e98b8b !important;
+}
+
+
+.navbar-happy-paws .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+
+
+
+.navbar-happy-paws > .container {
+  max-width: 1500px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.navbar-happy-paws .navbar-collapse {
+  justify-content: center;
+}
+
+.navbar-happy-paws .navbar-nav {
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.navbar-happy-paws .navbar-saludo,
+.navbar-happy-paws .navbar-btn-salir,
+.navbar-happy-paws .navbar-btn-login {
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
