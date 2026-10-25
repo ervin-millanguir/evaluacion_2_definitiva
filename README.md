@@ -168,3 +168,29 @@ src/
 Documentos del semestre:
 
 <https://drive.google.com/drive/folders/1sBZz8nqT04jvfUIeWwUNZRod3w3K-RjQ?usp=sharing>
+
+## tabla cobertura
+
+ % Coverage report from v8
+----------------------|---------|----------|---------|---------|-------------------
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------|---------|----------|---------|---------|-------------------
+All files             |    97.5 |    77.89 |   96.36 |   97.32 |                   
+ components/atoms     |     100 |      100 |     100 |     100 |                   
+  CampoTexto.jsx      |     100 |      100 |     100 |     100 |                   
+  EtiquetaEspecie.jsx |     100 |      100 |     100 |     100 |                   
+ components/molecules |     100 |    68.42 |     100 |     100 |                   
+  CampoFormulario.jsx |     100 |      100 |     100 |     100 |                   
+  TarjetaServicio.jsx |     100 |    57.14 |     100 |     100 | 8-13,28-57        
+ data                 |     100 |      100 |     100 |     100 |                   
+  productos.json      |     100 |      100 |     100 |     100 |                   
+ services             |   97.87 |       75 |   95.12 |   97.67 |                   
+  authService.js      |     100 |      100 |     100 |     100 |                   
+  citaService.js      |     100 |    64.28 |     100 |     100 | 31-46             
+  productoService.js  |     100 |      100 |     100 |     100 |                   
+  servicioService.js  |    91.3 |       50 |   83.33 |    90.9 | 26-29             
+ utils                |   94.44 |    83.33 |     100 |   94.44 |                   
+  adaptarCatalogo.js  |    87.5 |       70 |     100 |    87.5 | 8                 
+  iconosCatalogo.js   |     100 |       75 |     100 |     100 | 28                
+  validaciones.js     |     100 |      100 |     100 |     100 |                   
+----------------------|---------|----------|---------|---------|-------------------
