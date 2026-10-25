@@ -2,39 +2,32 @@
 import { useState } from 'react'
 import FormularioServicio from '../components/organisms/FormularioServicio'
 import PlantillaAdmin from '../components/templates/PlantillaAdmin'
-import { serviciosIniciales } from '../utils/adaptarCatalogo'
-
-function cargarServicios() {
-  try {
-    const guardados = localStorage.getItem('serviciosAdmin')
-    return guardados ? JSON.parse(guardados) : serviciosIniciales
-  } catch {
-    return serviciosIniciales
-  }
-}
+import {
+  actualizarServicio,
+  crearServicio,
+  eliminarServicio,
+  listarServicios,
+} from '../services/servicioService'
 
 export default function AdminServicios() {
-  const [servicios, setServicios] = useState(cargarServicios)
+  const [servicios, setServicios] = useState(() => listarServicios())
   const [editado, setEditado] = useState(null)
+  const [idPendienteEliminar, setIdPendienteEliminar] = useState(null)
 
   function guardar(datos) {
-    const actualizados = editado
-      ? servicios.map((servicio) =>
-          servicio.id === editado.id ? { ...servicio, ...datos } : servicio,
-        )
-      : [...servicios, datos]
-
-    setServicios(actualizados)
-    localStorage.setItem('serviciosAdmin', JSON.stringify(actualizados))
+    if (editado) {
+      actualizarServicio(editado.id, datos)
+    } else {
+      crearServicio(datos)
+    }
+    setServicios(listarServicios())
     setEditado(null)
   }
 
   function eliminar(id) {
-    if (!window.confirm('¿Seguro que deseas eliminar este servicio?')) return
-
-    const actualizados = servicios.filter((servicio) => servicio.id !== id)
-    setServicios(actualizados)
-    localStorage.setItem('serviciosAdmin', JSON.stringify(actualizados))
+    eliminarServicio(id)
+    setServicios(listarServicios())
+    setIdPendienteEliminar(null)
   }
 
   return (
@@ -50,6 +43,28 @@ export default function AdminServicios() {
         onGuardar={guardar}
         onCancelar={() => setEditado(null)}
       />
+
+      {idPendienteEliminar !== null && (
+        <div className="alert alert-warning d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <span>¿Seguro que deseas eliminar este servicio?</span>
+          <div className="d-flex gap-2">
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => eliminar(idPendienteEliminar)}
+            >
+              Sí, eliminar
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={() => setIdPendienteEliminar(null)}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
 
       <h2 className="h4 mt-4">Servicios registrados ({servicios.length})</h2>
 
@@ -88,7 +103,7 @@ export default function AdminServicios() {
                     </button>
                     <button
                       className="btn btn-sm btn-outline-danger"
-                      onClick={() => eliminar(servicio.id)}
+                      onClick={() => setIdPendienteEliminar(servicio.id)}
                       type="button"
                     >
                       Eliminar

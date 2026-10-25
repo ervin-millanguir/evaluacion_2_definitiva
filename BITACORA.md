@@ -77,6 +77,28 @@ encontrados durante el desarrollo de Happy Paws.
 - Esta autenticación es local y educativa; no reemplaza un backend ni almacena
   credenciales de producción de forma segura.
 
+### Ampliación del flujo administrativo y de citas
+
+- Se agregaron las rutas `/solicitar-cita`, `/cita-resultado` y `/mis-citas`.
+- Se agregó administración protegida de servicios y estados de citas.
+- Se mantuvo la ruta `/cita` como redirección compatible.
+- Se reemplazaron confirmaciones y errores del navegador por mensajes visuales
+  controlados por React.
+- Se corrigió la preselección del servicio al entrar desde una tarjeta del
+  catálogo.
+
+### Separación de services y limpieza
+
+- Se creó `servicioService.js` para centralizar el CRUD administrativo de
+  servicios.
+- Se creó `citaService.js` para centralizar el almacenamiento y actualización
+  de citas.
+- Se agregaron pruebas unitarias para ambos services.
+- Se eliminaron archivos heredados o vacíos que no tenían imports activos:
+  `Cita.jsx`, `BuscadorServicios.jsx`, `FilaCita.jsx`,
+  `SelectorFechaHora.jsx`, `Icono.jsx`, `Selector.jsx`,
+  `ProductosContext.jsx`, `App.css` y assets de Vite no utilizados.
+
 ### Revisión según guía de hooks, formularios y navegación
 
 - Se separaron las reglas de validación en `src/utils/validaciones.js`; son
@@ -95,7 +117,7 @@ encontrados durante el desarrollo de Happy Paws.
 - Se configuró Vitest con entorno `jsdom`.
 - Se incorporó React Testing Library y `jest-dom`.
 - Se agregaron pruebas para átomos, moléculas y el service CRUD.
-- Se llegó a 17 pruebas aprobadas.
+- Se llegó a 21 pruebas aprobadas.
 - Se configuraron los comandos:
 
   ```bash
@@ -160,7 +182,7 @@ Solución:
 Las validaciones realizadas antes de este registro fueron:
 
 ```text
-npm run test:run       10 pruebas aprobadas
+npm run test:run       21 pruebas aprobadas
 npm run test:cov       cobertura generada correctamente
 npm run build          compilación correcta
 npm run lint           sin warnings

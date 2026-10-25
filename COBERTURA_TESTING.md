@@ -49,18 +49,20 @@ La carpeta `coverage/` es un resultado generado y está excluida de Git.
 Salida validada con `npm run test:cov`:
 
 ```text
-Test Files  6 passed (6)
-Tests       17 passed (17)
+Test Files  8 passed (8)
+Tests       21 passed (21)
 
-Statements   : 98.43% (63/64)
-Branches     : 94.11% (48/51)
-Functions    : 100% (30/30)
-Lines        : 98.27% (57/58)
+Statements   : 99.04% (104/105)
+Branches     : 87.67% (64/73)
+Functions    : 100% (47/47)
+Lines        : 98.95% (95/96)
 ```
 
-El único código sin cobertura completa corresponde a una rama de
-`src/utils/adaptarCatalogo.js`, en la línea 7. Esto no impide que la suite
-valide los comportamientos principales implementados en esta etapa.
+Las ramas no cubiertas corresponden a casos defensivos de persistencia:
+`src/utils/adaptarCatalogo.js` (línea 7), `src/services/citaService.js`
+(líneas 31-46) y `src/services/servicioService.js` (línea 40). La suite sí
+valida los caminos principales de creación, consulta, actualización y
+eliminación.
 
 ## 5. Casos cubiertos
 
@@ -72,7 +74,9 @@ valide los comportamientos principales implementados en esta etapa.
 | `src/services/productoService.test.js` | 7 | Listar, obtener, crear, actualizar, eliminar e IDs inexistentes |
 | `src/services/authService.test.js` | 4 | Registro, duplicados, login, credenciales inválidas y cierre |
 | `src/utils/validaciones.test.js` | 3 | Obligatorios, correo, contraseña y confirmación |
-| **Total** | **17** | **Servicios, validaciones y componentes seleccionados** |
+| `src/services/servicioService.test.js` | 2 | Listar, crear, actualizar y eliminar servicios |
+| `src/services/citaService.test.js` | 2 | Crear citas, listar y actualizar estados |
+| **Total** | **21** | **Servicios, validaciones y componentes seleccionados** |
 
 ## 6. Métricas
 
@@ -87,10 +91,10 @@ Las métricas se obtienen directamente desde el reporte de Vitest:
 
 | Métrica | Resultado |
 |---|---:|
-| Statements | 98.43% (63/64) |
-| Branches | 94.11% (48/51) |
-| Functions | 100% (30/30) |
-| Lines | 98.27% (57/58) |
+| Statements | 99.04% (104/105) |
+| Branches | 87.67% (64/73) |
+| Functions | 100% (47/47) |
+| Lines | 98.95% (95/96) |
 
 La evidencia final debe incluir una captura de la salida de la terminal
 producida por `npm run test:cov` y, si se requiere mayor detalle, una captura

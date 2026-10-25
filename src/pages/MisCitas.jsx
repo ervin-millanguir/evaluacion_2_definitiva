@@ -1,15 +1,10 @@
 
 import { Link } from 'react-router-dom'
 import ListaMisCitas from '../components/organisms/ListaMisCitas'
+import { listarCitas } from '../services/citaService'
 
 export default function MisCitas() {
-  let citas = []
-
-  try {
-    citas = JSON.parse(localStorage.getItem('misCitas') || '[]')
-  } catch {
-    citas = []
-  }
+  const citas = listarCitas()
 
   return (
     <section className="container py-4">

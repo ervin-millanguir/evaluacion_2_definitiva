@@ -75,7 +75,9 @@ la suite completa pase.
 - Filtro por categoría.
 - Página de categorías.
 - Vista de detalle para cada servicio.
-- Solicitud de citas con confirmación y resumen.
+- Solicitud de citas con validación, resultado y resumen.
+- Consulta de mis citas.
+- Panel protegido para administrar servicios y estados de citas.
 
 ### Registro y navegación
 
@@ -93,20 +95,25 @@ la suite completa pase.
 - `/inicio`: página de inicio.
 - `/servicios`: catálogo de servicios y filtro por categoría.
 - `/servicios/:id`: detalle de un servicio.
-- `/cita`: formulario para solicitar una cita.
+- `/cita`: redirección compatible al formulario de solicitud.
+- `/solicitar-cita`: formulario para solicitar una cita.
+- `/cita-resultado`: resultado y resumen de la solicitud.
+- `/mis-citas`: citas guardadas en el navegador.
 - `/categorias`: categorías de servicios.
 - `/productos`: catálogo, CRUD, búsqueda y filtros.
 - `/categoria/:nombre`: catálogo filtrado por una categoría.
 - `/buscar/:texto`: resultados del catálogo según un texto.
 - `/productos/:id`: detalle de un producto.
 - `/login`: inicio de sesión.
-- `/admin`: panel protegido de administración del catálogo.
+- `/admin`: redirección al panel protegido.
+- `/admin/servicios`: CRUD administrativo de servicios.
+- `/admin/citas`: gestión administrativa de estados de citas.
 
 ## Pruebas
 
-La suite contiene 14 pruebas y cubre componentes atómicos, componentes
-moleculares, autenticación local y las operaciones del servicio CRUD de
-productos.
+La suite contiene 21 pruebas y cubre componentes atómicos, componentes
+moleculares, autenticación local, validaciones y las operaciones del servicio
+CRUD de productos.
 
 ```bash
 npm test
@@ -119,82 +126,22 @@ un resultado generado y está excluida de Git.
 ## Estructura principal
 
 src/
-├── assets/
-│   ├── hero.png
-│   ├── react.svg
-│   └── vite.svg
 ├── components/
 │   ├── atoms/
-│   │   ├── Boton.jsx
-│   │   ├── CampoTexto.jsx
-│   │   ├── CampoTexto.test.jsx
-│   │   ├── EtiquetaEspecie.jsx
-│   │   ├── EtiquetaEspecie.test.jsx
-│   │   ├── EtiquetaEstadoCita.jsx
-│   │   ├── Icono.jsx
-│   │   └── Selector.jsx
 │   ├── molecules/
-│   │   ├── BuscadorServicios.jsx
-│   │   ├── CampoFormulario.jsx
-│   │   ├── CampoFormulario.test.jsx
-│   │   ├── FilaCita.jsx
-│   │   ├── SelectorFechaHora.jsx
-│   │   ├── TarjetaProducto.jsx
-│   │   └── TarjetaServicio.jsx
 │   ├── organisms/
-│   │   ├── Footer.jsx
-│   │   ├── FormularioProducto.jsx
-│   │   ├── FormularioRegistro.jsx
-│   │   ├── FormularioServicio.jsx
-│   │   ├── FormularioSolicitudCita.jsx
-│   │   ├── ListaMisCitas.jsx
-│   │   ├── ListaProductos.jsx
-│   │   ├── ListaServicios.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── RutaProtegida.jsx
-│   │   └── TablaCitas.jsx
 │   └── templates/
-│       ├── PlantillaAdmin.jsx
-│       └── PlantillaPublica.jsx
 ├── context/
-│   ├── AuthContext.js
-│   ├── AuthProvider.jsx
-│   ├── ProductosContext.js
-│   ├── ProductosContext.jsx
-│   ├── ProductosProvider.jsx
-│   ├── useAuth.js
-│   └── useProductos.js
 ├── data/
 │   └── productos.json
 ├── pages/
-│   ├── AdminCitas.jsx
-│   ├── AdminServicios.jsx
-│   ├── Categorias.jsx
-│   ├── Cita.jsx
-│   ├── CitaResultado.jsx
-│   ├── DetalleProducto.jsx
-│   ├── DetalleServicio.jsx
-│   ├── Inicio.jsx
-│   ├── Login.jsx
-│   ├── MisCitas.jsx
-│   ├── Productos.jsx
-│   ├── Registro.jsx
-│   ├── Servicios.jsx
-│   └── SolicitarCita.jsx
 ├── services/
 │   ├── authService.js
-│   ├── authService.test.js
 │   ├── citaService.js
 │   ├── productoService.js
-│   ├── productoService.test.js
 │   └── servicioService.js
 ├── test/
-│   └── setup.js
 ├── utils/
-│   ├── adaptarCatalogo.js
-│   ├── validaciones.js
-│   └── validaciones.test.js
-├── App.css
 ├── App.jsx
 ├── index.css
 └── main.jsx

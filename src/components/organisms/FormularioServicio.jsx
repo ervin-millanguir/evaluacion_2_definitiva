@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const inicial = {
   codigo: '',
@@ -11,24 +11,22 @@ const inicial = {
   observaciones: '',
 }
 
+function datosDesdeServicio(servicio) {
+  return servicio
+    ? {
+        ...inicial,
+        ...servicio,
+        precio: String(servicio.precio ?? ''),
+      }
+    : inicial
+}
+
 export default function FormularioServicio({
   servicioEditado,
   onGuardar,
   onCancelar,
 }) {
-  const [datos, setDatos] = useState(inicial)
-
-  useEffect(() => {
-    if (servicioEditado) {
-      setDatos({
-        ...inicial,
-        ...servicioEditado,
-        precio: String(servicioEditado.precio ?? ''),
-      })
-    } else {
-      setDatos(inicial)
-    }
-  }, [servicioEditado])
+  const [datos, setDatos] = useState(() => datosDesdeServicio(servicioEditado))
 
   function cambiar(event) {
     setDatos({ ...datos, [event.target.name]: event.target.value })

@@ -98,33 +98,14 @@ export default function FormularioSolicitudCita({
       fechaSolicitud: new Date().toISOString(),
     }
 
-    if (typeof onSolicitar === 'function') {
-      onSolicitar(solicitud)
-    } else {
-      try {
-        const citasGuardadas = JSON.parse(
-          localStorage.getItem('misCitas') || '[]'
-        )
-
-        const nuevaCita = {
-          ...solicitud,
-          id: `CITA-${Date.now()}`,
-        }
-
-        localStorage.setItem(
-          'misCitas',
-          JSON.stringify([...citasGuardadas, nuevaCita])
-        )
-
-        localStorage.setItem('ultimaCita', JSON.stringify(nuevaCita))
-
-        window.location.assign('/cita-resultado')
-      } catch {
-        setErrores({
-          general: 'No se pudo guardar la solicitud. Inténtalo nuevamente.',
-        })
-      }
+    if (typeof onSolicitar !== 'function') {
+      setErrores({
+        general: 'No se pudo enviar la solicitud. Inténtalo nuevamente.',
+      })
+      return
     }
+
+    onSolicitar(solicitud)
   }
 
   return (

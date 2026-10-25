@@ -1,14 +1,9 @@
 
 import { Link } from 'react-router-dom'
+import { obtenerUltimaCita } from '../services/citaService'
 
 export default function CitaResultado() {
-  let cita = null
-
-  try {
-    cita = JSON.parse(localStorage.getItem('ultimaCita') || 'null')
-  } catch {
-    cita = null
-  }
+  const cita = obtenerUltimaCita()
 
   return (
     <section className="container py-5">

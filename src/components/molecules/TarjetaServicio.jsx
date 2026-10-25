@@ -64,7 +64,7 @@ export default function TarjetaServicio({ servicio }) {
           Ver detalle
         </Link>
         <Link
-          to={`/cita?servicio=${encodeURIComponent(servicio.id)}`}
+          to={`/solicitar-cita?servicio=${encodeURIComponent(servicio.id)}`}
           className="btn btn-outline-success w-100 mt-2"
         >
           Solicitar cita

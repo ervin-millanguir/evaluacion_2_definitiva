@@ -1,21 +1,20 @@
 
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import FormularioSolicitudCita from '../components/organisms/FormularioSolicitudCita'
+import { crearCita } from '../services/citaService'
 
 export default function SolicitarCita() {
   const navegar = useNavigate()
+  const [searchParams] = useSearchParams()
+  const [errorGuardado, setErrorGuardado] = useState('')
 
   function guardarSolicitud(solicitud) {
     try {
-      const citas = JSON.parse(localStorage.getItem('misCitas') || '[]')
-      const nuevasCitas = [...citas, solicitud]
-
-      localStorage.setItem('misCitas', JSON.stringify(nuevasCitas))
-      localStorage.setItem('ultimaCita', JSON.stringify(solicitud))
-
+      crearCita(solicitud)
       navegar('/cita-resultado')
     } catch {
-      window.alert('No se pudo guardar la solicitud. Inténtalo nuevamente.')
+      setErrorGuardado('No se pudo guardar la solicitud. Inténtalo nuevamente.')
     }
   }
 
@@ -27,7 +26,15 @@ export default function SolicitarCita() {
           <p className="text-muted mb-4">
             Completa los datos para solicitar atención veterinaria para tu mascota.
           </p>
-          <FormularioSolicitudCita onSolicitar={guardarSolicitud} />
+          {errorGuardado && (
+            <div className="alert alert-danger" role="alert">
+              {errorGuardado}
+            </div>
+          )}
+          <FormularioSolicitudCita
+            onSolicitar={guardarSolicitud}
+            servicioInicial={searchParams.get('servicio') || ''}
+          />
         </div>
       </div>
     </section>
