@@ -118,20 +118,86 @@ un resultado generado y está excluida de Git.
 
 ## Estructura principal
 
-```text
 src/
+├── assets/
+│   ├── hero.png
+│   ├── react.svg
+│   └── vite.svg
 ├── components/
 │   ├── atoms/
+│   │   ├── Boton.jsx
+│   │   ├── CampoTexto.jsx
+│   │   ├── CampoTexto.test.jsx
+│   │   ├── EtiquetaEspecie.jsx
+│   │   ├── EtiquetaEspecie.test.jsx
+│   │   ├── EtiquetaEstadoCita.jsx
+│   │   ├── Icono.jsx
+│   │   └── Selector.jsx
 │   ├── molecules/
+│   │   ├── BuscadorServicios.jsx
+│   │   ├── CampoFormulario.jsx
+│   │   ├── CampoFormulario.test.jsx
+│   │   ├── FilaCita.jsx
+│   │   ├── SelectorFechaHora.jsx
+│   │   ├── TarjetaProducto.jsx
+│   │   └── TarjetaServicio.jsx
 │   ├── organisms/
+│   │   ├── Footer.jsx
+│   │   ├── FormularioProducto.jsx
+│   │   ├── FormularioRegistro.jsx
+│   │   ├── FormularioServicio.jsx
+│   │   ├── FormularioSolicitudCita.jsx
+│   │   ├── ListaMisCitas.jsx
+│   │   ├── ListaProductos.jsx
+│   │   ├── ListaServicios.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── RutaProtegida.jsx
+│   │   └── TablaCitas.jsx
 │   └── templates/
+│       ├── PlantillaAdmin.jsx
+│       └── PlantillaPublica.jsx
 ├── context/
+│   ├── AuthContext.js
+│   ├── AuthProvider.jsx
+│   ├── ProductosContext.js
+│   ├── ProductosContext.jsx
+│   ├── ProductosProvider.jsx
+│   ├── useAuth.js
+│   └── useProductos.js
 ├── data/
+│   └── productos.json
 ├── pages/
+│   ├── AdminCitas.jsx
+│   ├── AdminServicios.jsx
+│   ├── Categorias.jsx
+│   ├── Cita.jsx
+│   ├── CitaResultado.jsx
+│   ├── DetalleProducto.jsx
+│   ├── DetalleServicio.jsx
+│   ├── Inicio.jsx
+│   ├── Login.jsx
+│   ├── MisCitas.jsx
+│   ├── Productos.jsx
+│   ├── Registro.jsx
+│   ├── Servicios.jsx
+│   └── SolicitarCita.jsx
 ├── services/
+│   ├── authService.js
+│   ├── authService.test.js
+│   ├── citaService.js
+│   ├── productoService.js
+│   ├── productoService.test.js
+│   └── servicioService.js
 ├── test/
-└── utils/
-```
+│   └── setup.js
+├── utils/
+│   ├── adaptarCatalogo.js
+│   ├── validaciones.js
+│   └── validaciones.test.js
+├── App.css
+├── App.jsx
+├── index.css
+└── main.jsx
 
 ## Material complementario
 

@@ -8,7 +8,9 @@ const enlaces = [
   { ruta: '/servicios', texto: 'Servicios' },
   { ruta: '/categorias', texto: 'Categorías' },
   { ruta: '/productos', texto: 'Productos' },
-  { ruta: '/admin', texto: 'Administración' },
+  { ruta: '/solicitar-cita', texto: 'Solicitar cita' },
+  { ruta: '/mis-citas', texto: 'Mis citas' },
+  { ruta: '/admin/servicios', texto: 'Administración' },
   { ruta: '/', texto: 'Registro', exacto: true },
 ]
 
@@ -27,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="navbar navbar-expand-md bg-white border-bottom"
+      className="navbar navbar-expand-lg bg-white border-bottom"
       aria-label="Navegación principal"
     >
       <div className="container">
@@ -54,23 +56,29 @@ export default function Navbar() {
           id="menu-principal"
           className={`collapse navbar-collapse${abierto ? ' show' : ''}`}
         >
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto align-items-lg-center">
             {enlaces
-              .filter((enlace) => enlace.ruta !== '/admin' || estaAutenticado)
+              .filter((enlace) => {
+                if (enlace.ruta === '/admin/servicios') {
+                  return estaAutenticado
+                }
+                return true
+              })
               .map((enlace) => (
-              <li className="nav-item" key={enlace.ruta}>
-                <NavLink
-                  to={enlace.ruta}
-                  end={enlace.exacto || false}
-                  onClick={cerrarMenu}
-                  className={({ isActive }) =>
-                    `nav-link${isActive ? ' active fw-bold text-success' : ''}`
-                  }
-                >
-                  {enlace.texto}
-                </NavLink>
-              </li>
+                <li className="nav-item" key={enlace.ruta}>
+                  <NavLink
+                    to={enlace.ruta}
+                    end={enlace.exacto || false}
+                    onClick={cerrarMenu}
+                    className={({ isActive }) =>
+                      `nav-link${isActive ? ' active fw-bold text-success' : ''}`
+                    }
+                  >
+                    {enlace.texto}
+                  </NavLink>
+                </li>
               ))}
+
             {estaAutenticado ? (
               <li className="nav-item d-flex align-items-center">
                 <span className="nav-link text-muted">
