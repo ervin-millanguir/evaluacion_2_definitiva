@@ -1,4 +1,3 @@
-
 import { Link, Navigate, Route, Routes } from 'react-router-dom'
 
 import PlantillaPublica from './components/templates/PlantillaPublica'
@@ -20,6 +19,8 @@ import AdminServicios from './pages/AdminServicios'
 import AdminCitas from './pages/AdminCitas'
 import AdminDashboard from './pages/AdminDashboard'
 import PlantillaAdmin from './components/templates/PlantillaAdmin'
+import AdminUsuarios from './pages/AdminUsuarios'
+import MiCuenta from './pages/MiCuenta'
 
 export default function App() {
   return (
@@ -108,34 +109,43 @@ export default function App() {
       <Route
         path="/solicitar-cita"
         element={
-          <PlantillaPublica>
-            <SolicitarCita />
-          </PlantillaPublica>
+          <RutaProtegida>
+            <PlantillaPublica>
+              <SolicitarCita />
+            </PlantillaPublica>
+          </RutaProtegida>
         }
       />
 
       <Route
         path="/cita-resultado"
         element={
-          <PlantillaPublica>
-            <CitaResultado />
-          </PlantillaPublica>
+          <RutaProtegida>
+            <PlantillaPublica>
+              <CitaResultado />
+            </PlantillaPublica>
+          </RutaProtegida>
         }
       />
 
       <Route
         path="/mis-citas"
         element={
-          <PlantillaPublica>
-            <MisCitas />
-          </PlantillaPublica>
+          <RutaProtegida>
+            <PlantillaPublica>
+              <MisCitas />
+            </PlantillaPublica>
+          </RutaProtegida>
         }
       />
+
+      <Route path="/mi-cuenta" element={<RutaProtegida><PlantillaPublica><MiCuenta /></PlantillaPublica></RutaProtegida>} />
+      <Route path="/admin/usuarios" element={<RutaProtegida rolesPermitidos={['administrador']}><AdminUsuarios /></RutaProtegida>} />
 
       <Route
         path="/admin"
         element={
-          <RutaProtegida>
+          <RutaProtegida rolesPermitidos={['administrador']}>
             <AdminDashboard />
           </RutaProtegida>
         }
@@ -144,7 +154,7 @@ export default function App() {
       <Route
         path="/admin/servicios"
         element={
-          <RutaProtegida>
+          <RutaProtegida rolesPermitidos={['administrador']}>
             <AdminServicios />
           </RutaProtegida>
         }
@@ -153,7 +163,7 @@ export default function App() {
       <Route
         path="/admin/productos"
         element={
-          <RutaProtegida>
+          <RutaProtegida rolesPermitidos={['administrador']}>
             <PlantillaAdmin>
               <Productos modoAdministracion />
             </PlantillaAdmin>
@@ -164,7 +174,7 @@ export default function App() {
       <Route
         path="/admin/citas"
         element={
-          <RutaProtegida>
+          <RutaProtegida rolesPermitidos={['administrador']}>
             <AdminCitas />
           </RutaProtegida>
         }

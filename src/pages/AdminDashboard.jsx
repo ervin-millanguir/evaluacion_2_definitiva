@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PlantillaAdmin from '../components/templates/PlantillaAdmin'
 import { listarUsuarios } from '../services/authService'
@@ -27,20 +28,42 @@ const resumen = [
   {
     clave: 'usuarios',
     titulo: 'Usuarios',
-    ruta: '/admin',
-    descripcion: 'Consulta las cuentas registradas.',
+    ruta: '/admin/usuarios',
+    descripcion: 'Gestiona las cuentas de PostgreSQL.',
   },
 ]
 
 export default function AdminDashboard() {
   const { productos } = useProductos()
+  const [usuarios, setUsuarios] = useState([])
+  const [errorUsuarios, setErrorUsuarios] = useState('')
+  const citas = listarCitas()
+  const servicios = listarServicios()
+
+  useEffect(() => {
+    async function cargarUsuarios() {
+      try {
+        const datos = await listarUsuarios()
+        setUsuarios(datos)
+      } catch (error) {
+        setErrorUsuarios(
+          error.response?.data?.mensaje ||
+          'No se pudieron cargar los usuarios.'
+        )
+      }
+    }
+
+    cargarUsuarios()
+  }, [])
+
   const cantidades = {
     productos: productos.length,
-    servicios: listarServicios().length,
-    citas: listarCitas().length,
-    usuarios: listarUsuarios().length,
+    servicios: servicios.length,
+    citas: citas.length,
+    usuarios: usuarios.length,
   }
-  const citasRecientes = listarCitas().slice(-3).reverse()
+
+  const citasRecientes = citas.slice(-3).reverse()
 
   return (
     <PlantillaAdmin>
@@ -53,6 +76,12 @@ export default function AdminDashboard() {
         </div>
       </div>
 
+      {errorUsuarios && (
+        <div className="alert alert-danger" role="alert">
+          {errorUsuarios}
+        </div>
+      )}
+
       <div className="row g-4 mb-5">
         {resumen.map((item) => (
           <div className="col-12 col-sm-6 col-xl-3" key={item.clave}>
@@ -63,7 +92,7 @@ export default function AdminDashboard() {
                   {cantidades[item.clave]}
                 </p>
                 <p className="small text-muted">{item.descripcion}</p>
-                {item.clave !== 'usuarios' && (
+                {(
                   <Link to={item.ruta} className="btn btn-outline-success mt-auto">
                     Ir al módulo
                   </Link>

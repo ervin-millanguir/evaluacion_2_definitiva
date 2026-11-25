@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import CampoFormulario from '../components/molecules/CampoFormulario'
 import Boton from '../components/atoms/Boton'
 import useAuth from '../context/useAuth'
@@ -7,7 +7,9 @@ import useAuth from '../context/useAuth'
 export default function Login() {
   const [datos, setDatos] = useState({ correo: '', contrasena: '' })
   const [error, setError] = useState('')
-  const { iniciarSesion } = useAuth()
+  const [cargando, setCargando] = useState(false)
+
+  const { iniciarSesion, estaAutenticado } = useAuth()
   const navegar = useNavigate()
   const location = useLocation()
 
@@ -17,7 +19,7 @@ export default function Login() {
     setError('')
   }
 
-  function manejarEnvio(event) {
+  async function manejarEnvio(event) {
     event.preventDefault()
 
     if (!datos.correo.trim() || !datos.contrasena) {
@@ -25,14 +27,26 @@ export default function Login() {
       return
     }
 
-    const resultado = iniciarSesion(datos.correo, datos.contrasena)
-    if (!resultado.ok) {
-      setError(resultado.mensaje)
-      return
-    }
+    setCargando(true)
+    setError('')
 
-    navegar(location.state?.desde || '/inicio', { replace: true })
+    try {
+      const resultado = await iniciarSesion(datos.correo, datos.contrasena)
+
+      if (!resultado.ok) {
+        setError(resultado.mensaje)
+        return
+      }
+
+      navegar(location.state?.desde || '/inicio', { replace: true })
+    } catch {
+      setError('Ocurrió un error al iniciar sesión.')
+    } finally {
+      setCargando(false)
+    }
   }
+
+  if (estaAutenticado) return <Navigate to='/inicio' replace />
 
   return (
     <main className="container py-5">
@@ -56,6 +70,7 @@ export default function Login() {
                   onChange={manejarCambio}
                   placeholder="nombre@correo.cl"
                 />
+
                 <CampoFormulario
                   id="contrasena"
                   etiqueta="Contraseña"
@@ -65,7 +80,7 @@ export default function Login() {
                 />
 
                 <Boton tipo="submit" variante="success">
-                  Ingresar
+                  {cargando ? 'Ingresando...' : 'Ingresar'}
                 </Boton>
 
                 {error && (
