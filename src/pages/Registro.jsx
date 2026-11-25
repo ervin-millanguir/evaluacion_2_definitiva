@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import useAuth from '../context/useAuth'
 import FormularioRegistro from '../components/organisms/FormularioRegistro'
 
 export default function Registro() {
+  const { estaAutenticado } = useAuth()
+  if (estaAutenticado) return <Navigate to='/inicio' replace />
   return (
     <main className="container py-5">
       <div className="row justify-content-center">

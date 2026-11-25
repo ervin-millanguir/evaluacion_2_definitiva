@@ -194,3 +194,9 @@ All files             |    97.5 |    77.89 |   96.36 |   97.32 |
   iconosCatalogo.js   |     100 |       75 |     100 |     100 | 28                
   validaciones.js     |     100 |      100 |     100 |     100 |                   
 ----------------------|---------|----------|---------|---------|-------------------
+
+---
+
+## EP3: JWT, rutas y administración de usuarios
+
+Se incorporó una integración React ↔ API Node/Express de Happy Paws. Ver [`INTEGRACION_EP3.md`](INTEGRACION_EP3.md) para instalarla y conocer las limitaciones actuales (citas y catálogo no conectados íntegramente a la base).
